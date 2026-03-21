@@ -1,0 +1,22 @@
+export const palette = {
+  primary: '#FF6B6B',
+  secondary: '#4ECDC4',
+  accent: '#FFE66D',
+  accentSoft: '#FFF3B3',
+  success: '#6BCB77',
+  error: '#FF8A8A',
+  background: '#F9FBFF',
+  backgroundTop: '#FFF8E7',
+  backgroundBottom: '#EEF7FF',
+  card: '#FFFFFF',
+  textPrimary: '#2C3E50',
+  textSecondary: '#5D6D7E',
+  border: '#D9E2EC',
+  muted: '#EEF2F7',
+  purple: '#8B5CF6',
+  sky: '#7DD3FC',
+  mint: '#BBF7D0',
+  peach: '#FED7AA',
+  berry: '#FDBAFC',
+  shadow: 'rgba(44, 62, 80, 0.12)'
+};

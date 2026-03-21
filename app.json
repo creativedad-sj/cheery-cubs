@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Cheery Cubs",
+    "slug": "cheery-cubs",
+    "scheme": "cheerycubs",
+    "version": "1.0.0",
+    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F9FC"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F9FC"
+      }
+    },
+    "experiments": {
+      "baseUrl": "/cheery-cubs"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
