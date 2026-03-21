@@ -2,6 +2,7 @@
   "name": "cheery-cubs",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://creativedad-sj.github.io/cheery-cubs",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -10,7 +11,7 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "predeploy": "expo export -p web",
-    "deploy": "gh-pages --nojekyll -d dist"
+    "deploy": "gh-pages -d dist --nojekyll"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.1.2",
