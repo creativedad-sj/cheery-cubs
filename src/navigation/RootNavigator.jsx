@@ -17,6 +17,10 @@ import { PatternBuilderScreen } from '../components/games/PatternBuilderScreen';
 import { ShadowMatchScreen } from '../components/games/ShadowMatchScreen';
 import { LetterHuntScreen } from '../components/games/LetterHuntScreen';
 import { FollowPathScreen } from '../components/games/FollowPathScreen';
+import { CountAndPackScreen } from '../components/games/CountAndPackScreen';
+import { WhichHasMoreScreen } from '../components/games/WhichHasMoreScreen';
+import { ShapeSortYardScreen } from '../components/games/ShapeSortYardScreen';
+import { NumberTraceScreen } from '../components/games/NumberTraceScreen';
 import { emotions, instruments, landmarks, sportsEquipment, vehicles } from '../utils/constants';
 
 const Stack = createNativeStackNavigator();
@@ -48,7 +52,9 @@ export function RootNavigator() {
       <Stack.Screen name="AllGames" component={AllGamesScreen} />
       <Stack.Screen name="Animals" component={AnimalGameScreen} />
       <Stack.Screen name="Counting" component={CountingScreen} />
+      <Stack.Screen name="CountAndPack" component={CountAndPackScreen} />
       <Stack.Screen name="ShapeMatch" component={ShapeMatchScreen} />
+      <Stack.Screen name="ShapeSortYard" component={ShapeSortYardScreen} />
       <Stack.Screen name="ColorMatch" component={ColorMatchScreen} />
       <Stack.Screen name="EmotionGame" component={EmotionGameScreen} />
       <Stack.Screen name="SportsGame" component={SportsGameScreen} />
@@ -57,6 +63,8 @@ export function RootNavigator() {
       <Stack.Screen name="LandmarksGame" component={LandmarksGameScreen} />
       <Stack.Screen name="LetterHunt" component={LetterHuntScreen} />
       <Stack.Screen name="TapCount" component={TapCountScreen} />
+      <Stack.Screen name="WhichHasMore" component={WhichHasMoreScreen} />
+      <Stack.Screen name="NumberTrace" component={NumberTraceScreen} />
       <Stack.Screen name="MemoryGame" component={MemoryGameScreen} />
       <Stack.Screen name="OddOneOut" component={OddOneOutScreen} />
       <Stack.Screen name="PatternBuilder" component={PatternBuilderScreen} />

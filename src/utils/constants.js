@@ -324,7 +324,7 @@ export const childStages = [
     ageLabel: 'About ages 1 to 2',
     description: 'Great for first taps, first words, and simple picture play.',
     featuredSkills: ['world-around-me', 'numbers-counting'],
-    featuredGames: ['Animals', 'ColorMatch', 'Counting']
+    featuredGames: ['Animals', 'CountAndPack', 'ColorMatch']
   },
   {
     id: 'growing-learner',
@@ -332,7 +332,7 @@ export const childStages = [
     ageLabel: 'About ages 2 to 3',
     description: 'Great for matching, counting, and short challenge games.',
     featuredSkills: ['world-around-me', 'numbers-counting', 'memory-focus'],
-    featuredGames: ['ShapeMatch', 'TapCount', 'MemoryGame']
+    featuredGames: ['ShapeSortYard', 'CountAndPack', 'MemoryGame']
   },
   {
     id: 'ready-kindergarten',
@@ -340,7 +340,7 @@ export const childStages = [
     ageLabel: 'About ages 4 to 5',
     description: 'Great for letters, patterns, memory, and bigger thinking games.',
     featuredSkills: ['letters-reading', 'thinking-patterns', 'memory-focus', 'numbers-counting'],
-    featuredGames: ['LetterHunt', 'PatternBuilder', 'ShadowMatch', 'FollowPath']
+    featuredGames: ['LetterHunt', 'WhichHasMore', 'PatternBuilder', 'NumberTrace']
   }
 ];
 
@@ -373,6 +373,21 @@ export const gameCatalog = [
     learningGoal: 'Recognize and name common shapes.',
     difficultyLevel: 'starter',
     recommendedOrder: 20,
+    isCoreGame: true
+  },
+  {
+    id: 'shape-sort-yard',
+    route: 'ShapeSortYard',
+    title: 'Shape Sort Yard',
+    icon: '\u{1F539}',
+    colors: ['#C4B5FD', '#8B5CF6'],
+    skillArea: 'world-around-me',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '2',
+    maxAgeLabel: '5',
+    learningGoal: 'Sort shapes by what they look like, like round or cornered.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 25,
     isCoreGame: true
   },
   {
@@ -496,6 +511,21 @@ export const gameCatalog = [
     isCoreGame: true
   },
   {
+    id: 'count-and-pack',
+    route: 'CountAndPack',
+    title: 'Count & Pack',
+    icon: '\u{1F9FA}',
+    colors: ['#FB7185', '#F97316'],
+    skillArea: 'numbers-counting',
+    recommendedStages: ['early-learner', 'growing-learner'],
+    minAgeLabel: '1',
+    maxAgeLabel: '4',
+    learningGoal: 'Count out the right number of items and pack them into the basket.',
+    difficultyLevel: 'starter',
+    recommendedOrder: 15,
+    isCoreGame: true
+  },
+  {
     id: 'tap-count',
     route: 'TapCount',
     title: 'Tap Count',
@@ -508,6 +538,36 @@ export const gameCatalog = [
     learningGoal: 'Count by tapping one item at a time.',
     difficultyLevel: 'starter',
     recommendedOrder: 20,
+    isCoreGame: true
+  },
+  {
+    id: 'which-has-more',
+    route: 'WhichHasMore',
+    title: 'Which Has More?',
+    icon: '\u2696\uFE0F',
+    colors: ['#38BDF8', '#2563EB'],
+    skillArea: 'numbers-counting',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Compare two groups and choose which side has more, fewer, or the same.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 30,
+    isCoreGame: true
+  },
+  {
+    id: 'number-trace',
+    route: 'NumberTrace',
+    title: 'Number Trace',
+    icon: '\u270D\uFE0F',
+    colors: ['#2DD4BF', '#0F766E'],
+    skillArea: 'numbers-counting',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Trace big numbers with your finger and build number confidence.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 40,
     isCoreGame: true
   },
   {
@@ -818,5 +878,33 @@ export const stickerMilestones = [
     name: 'Path Pal',
     desc: '10 path wins',
     check: (stats) => (stats['follow-path']?.correct || 0) >= 10
+  },
+  {
+    id: 'pack-pal',
+    emoji: '\u{1F9FA}',
+    name: 'Pack Pal',
+    desc: '10 count and pack wins',
+    check: (stats) => (stats['count-and-pack']?.correct || 0) >= 10
+  },
+  {
+    id: 'compare-captain',
+    emoji: '\u2696\uFE0F',
+    name: 'Compare Captain',
+    desc: '10 comparison wins',
+    check: (stats) => (stats['which-has-more']?.correct || 0) >= 10
+  },
+  {
+    id: 'shape-sorter',
+    emoji: '\u{1F539}',
+    name: 'Shape Sorter',
+    desc: '10 sorting wins',
+    check: (stats) => (stats['shape-sort-yard']?.correct || 0) >= 10
+  },
+  {
+    id: 'trace-star',
+    emoji: '\u270D\uFE0F',
+    name: 'Trace Star',
+    desc: '10 traced numbers',
+    check: (stats) => (stats['number-trace']?.correct || 0) >= 10
   }
 ];

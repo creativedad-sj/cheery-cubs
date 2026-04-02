@@ -10,7 +10,9 @@ export function GameHeader({ title, score, onBack, onSettings }) {
       </Pressable>
 
       <View style={styles.center}>
-        <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75} style={styles.title}>{title}</Text>
+        <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75} style={styles.title}>
+          {title}
+        </Text>
       </View>
 
       <View style={styles.actions}>
