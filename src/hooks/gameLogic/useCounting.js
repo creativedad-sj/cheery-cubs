@@ -21,7 +21,7 @@ export function useCounting() {
   const timeoutRef = useRef(null);
 
   const difficulty = getDifficulty('counting');
-  const maxCount = useMemo(() => (difficulty === 1 ? 5 : difficulty === 2 ? 10 : 15), [difficulty]);
+  const maxCount = useMemo(() => (difficulty === 1 ? 5 : difficulty === 2 ? 8 : 10), [difficulty]);
 
   const speakRef = useRef(speak);
   const questionModesRef = useRef(questionModes);

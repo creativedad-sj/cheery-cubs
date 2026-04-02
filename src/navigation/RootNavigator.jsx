@@ -1,6 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from '../components/screens/HomeScreen';
+import { AllGamesScreen } from '../components/screens/AllGamesScreen';
 import { SettingsScreen } from '../components/screens/SettingsScreen';
 import { StickerBookScreen } from '../components/screens/StickerBookScreen';
 import { DashboardScreen } from '../components/screens/DashboardScreen';
@@ -12,6 +13,10 @@ import { ColorMatchScreen } from '../components/games/ColorMatchScreen';
 import { TapCountScreen } from '../components/games/TapCountScreen';
 import { MemoryGameScreen } from '../components/games/MemoryGameScreen';
 import { OddOneOutScreen } from '../components/games/OddOneOutScreen';
+import { PatternBuilderScreen } from '../components/games/PatternBuilderScreen';
+import { ShadowMatchScreen } from '../components/games/ShadowMatchScreen';
+import { LetterHuntScreen } from '../components/games/LetterHuntScreen';
+import { FollowPathScreen } from '../components/games/FollowPathScreen';
 import { emotions, instruments, landmarks, sportsEquipment, vehicles } from '../utils/constants';
 
 const Stack = createNativeStackNavigator();
@@ -40,6 +45,7 @@ export function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="AllGames" component={AllGamesScreen} />
       <Stack.Screen name="Animals" component={AnimalGameScreen} />
       <Stack.Screen name="Counting" component={CountingScreen} />
       <Stack.Screen name="ShapeMatch" component={ShapeMatchScreen} />
@@ -49,9 +55,13 @@ export function RootNavigator() {
       <Stack.Screen name="InstrumentsGame" component={InstrumentsGameScreen} />
       <Stack.Screen name="VehiclesGame" component={VehiclesGameScreen} />
       <Stack.Screen name="LandmarksGame" component={LandmarksGameScreen} />
+      <Stack.Screen name="LetterHunt" component={LetterHuntScreen} />
       <Stack.Screen name="TapCount" component={TapCountScreen} />
       <Stack.Screen name="MemoryGame" component={MemoryGameScreen} />
       <Stack.Screen name="OddOneOut" component={OddOneOutScreen} />
+      <Stack.Screen name="PatternBuilder" component={PatternBuilderScreen} />
+      <Stack.Screen name="ShadowMatch" component={ShadowMatchScreen} />
+      <Stack.Screen name="FollowPath" component={FollowPathScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="StickerBook" component={StickerBookScreen} />
       <Stack.Screen name="Dashboard" component={DashboardScreen} />

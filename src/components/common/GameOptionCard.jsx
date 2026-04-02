@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: '46%',
     borderRadius: 30,
-    minHeight: 156,
+    minHeight: 124,
     overflow: 'hidden',
     shadowColor: palette.shadow,
     shadowOpacity: 1,
@@ -70,17 +70,17 @@ const styles = StyleSheet.create({
     elevation: 4
   },
   cardCompact: {
-    minHeight: 132,
+    minHeight: 104,
     borderRadius: 26
   },
   cardExtraCompact: {
     minWidth: '31%',
-    minHeight: 108,
+    minHeight: 84,
     borderRadius: 22
   },
   fill: {
     flex: 1,
-    padding: 18,
+    padding: 14,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
@@ -88,11 +88,11 @@ const styles = StyleSheet.create({
     borderRadius: 30
   },
   fillCompact: {
-    padding: 14,
+    padding: 10,
     borderRadius: 26
   },
   fillExtraCompact: {
-    padding: 10,
+    padding: 8,
     borderRadius: 22
   },
   highlighted: {
@@ -124,22 +124,22 @@ const styles = StyleSheet.create({
   },
   label: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '800',
     color: palette.textPrimary,
     lineHeight: 24
   },
   labelCompact: {
-    fontSize: 17,
-    lineHeight: 21
-  },
-  labelExtraCompact: {
     fontSize: 15,
     lineHeight: 18
   },
+  labelExtraCompact: {
+    fontSize: 13,
+    lineHeight: 16
+  },
   labelPrimary: {
-    fontSize: 23,
-    lineHeight: 28
+    fontSize: 20,
+    lineHeight: 24
   },
   emojiCompact: {
     lineHeight: 44

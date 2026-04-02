@@ -9,7 +9,8 @@ const defaultState = {
   spokenQuestionEnabled: true,
   questionModes: ['image', 'sound', 'text'],
   sessionMinutes: 0,
-  parentPin: ''
+  parentPin: '',
+  childStageId: ''
 };
 
 const SettingsContext = createContext(null);
@@ -109,6 +110,10 @@ export function SettingsProvider({ children }) {
     setSettings((prev) => ({ ...prev, parentPin: value }));
   }, []);
 
+  const setChildStageId = useCallback((value) => {
+    setSettings((prev) => ({ ...prev, childStageId: value }));
+  }, []);
+
   const clearParentPin = useCallback(() => {
     setSettings((prev) => ({ ...prev, parentPin: '' }));
   }, []);
@@ -128,6 +133,7 @@ export function SettingsProvider({ children }) {
         toggleQuestionMode,
         setSessionMinutes,
         setParentPin,
+        setChildStageId,
         clearParentPin,
         verifyParentPin,
         voiceEnabled: settings.spokenQuestionEnabled,

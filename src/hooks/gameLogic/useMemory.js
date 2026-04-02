@@ -22,7 +22,7 @@ export function useMemory() {
   const resetTimerRef = useRef(null);
 
   const difficulty = getDifficulty('memory-game');
-  const pairCount = useMemo(() => (difficulty === 1 ? 3 : difficulty === 2 ? 6 : 8), [difficulty]);
+  const pairCount = useMemo(() => (difficulty === 1 ? 3 : difficulty === 2 ? 4 : 6), [difficulty]);
 
   const speakRef = useRef(speak);
   useEffect(() => {

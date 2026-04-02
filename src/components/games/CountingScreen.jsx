@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { GameHeader } from '../common/GameHeader';
 import { Screen } from '../common/Screen';
 import { FeedbackBanner } from '../common/FeedbackBanner';
@@ -11,14 +11,15 @@ import { useCounting } from '../../hooks/gameLogic/useCounting';
 
 export function CountingScreen({ navigation }) {
   const { count, object, score, feedback, shakeId, showConfetti, handleNumberClick, speak, maxCount } = useCounting();
+  const { width } = useWindowDimensions();
   const { questionModes } = useSettings();
   const numbers = Array.from({ length: maxCount }, (_, index) => index + 1);
   const showImage = questionModes.includes('image');
   const showText = questionModes.includes('text');
   const showSound = questionModes.includes('sound');
   const promptModeHint = showImage && showText ? 'Count, then choose the number' : showImage ? 'Count the pictures' : showText ? 'Read and choose the number' : 'Listen and count';
-  const compactRound = count >= 10 || maxCount >= 15;
-  const extraCompactRound = count >= 13;
+  const compactRound = count >= 8 || maxCount >= 8 || width < 390;
+  const extraCompactRound = count >= 10 || width < 360;
 
   return (
     <Screen>
@@ -149,15 +150,15 @@ const styles = StyleSheet.create({
   numbersGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 10,
+    gap: 8,
     justifyContent: 'center'
   },
   numbersGridCompact: {
-    gap: 8
+    gap: 6
   },
   numberCard: {
-    width: 60,
-    height: 60,
+    width: 52,
+    height: 52,
     borderRadius: 18,
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
@@ -169,14 +170,14 @@ const styles = StyleSheet.create({
     elevation: 2
   },
   numberCardCompact: {
-    width: 54,
-    height: 54,
-    borderRadius: 16
+    width: 46,
+    height: 46,
+    borderRadius: 14
   },
   numberCardExtraCompact: {
-    width: 50,
-    height: 50,
-    borderRadius: 15
+    width: 42,
+    height: 42,
+    borderRadius: 13
   },
   shakeCard: {
     borderWidth: 3,
@@ -186,14 +187,14 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.95 }]
   },
   numberText: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '800',
     color: palette.textPrimary
   },
   numberTextCompact: {
-    fontSize: 22
+    fontSize: 19
   },
   numberTextExtraCompact: {
-    fontSize: 20
+    fontSize: 17
   }
 });

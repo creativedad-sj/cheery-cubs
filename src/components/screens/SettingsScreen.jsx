@@ -5,6 +5,7 @@ import { ParentPinModal } from '../common/ParentPinModal';
 import { Screen } from '../common/Screen';
 import { palette } from '../../theme/palette';
 import { useSettings } from '../../contexts/SettingsContext';
+import { childStages } from '../../utils/constants';
 
 const questionModeOptions = [
   { value: 'image', icon: '🖼️', label: 'Image', desc: 'Show a picture cue' },
@@ -33,6 +34,7 @@ export function SettingsScreen({ navigation }) {
     soundEnabled,
     vibrationEnabled,
     spokenQuestionEnabled,
+    childStageId,
     parentPin,
     toggleSound,
     toggleVibration,
@@ -41,6 +43,7 @@ export function SettingsScreen({ navigation }) {
     toggleQuestionMode,
     sessionMinutes,
     setSessionMinutes,
+    setChildStageId,
     setParentPin,
     clearParentPin,
     verifyParentPin
@@ -169,6 +172,28 @@ export function SettingsScreen({ navigation }) {
             <Text style={styles.timeText}>{value === 0 ? 'Off' : `${value}m`}</Text>
           </Pressable>
         ))}
+      </View>
+
+      <Text style={styles.sectionTitle}>Child Stage</Text>
+      <Text style={styles.sectionBody}>
+        Pick the stage that feels best right now. This helps the home screen recommend the most helpful games first.
+      </Text>
+      <View style={styles.stageGrid}>
+        {childStages.map((stage) => {
+          const selected = childStageId === stage.id;
+
+          return (
+            <Pressable
+              key={stage.id}
+              onPress={() => setChildStageId(stage.id)}
+              style={[styles.stageCard, selected && styles.stageCardActive]}
+            >
+              <Text style={styles.stageTitle}>{stage.title}</Text>
+              <Text style={styles.stageAge}>{stage.ageLabel}</Text>
+              <Text style={styles.stageDesc}>{stage.description}</Text>
+            </Pressable>
+          );
+        })}
       </View>
 
       <Text style={styles.sectionTitle}>Parent PIN</Text>
@@ -376,6 +401,41 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10
+  },
+  stageGrid: {
+    gap: 10
+  },
+  stageCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
+    padding: 16,
+    shadowColor: palette.shadow,
+    shadowOpacity: 1,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 2
+  },
+  stageCardActive: {
+    borderWidth: 3,
+    borderColor: palette.secondary,
+    backgroundColor: '#F0FDFA'
+  },
+  stageTitle: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: palette.textPrimary
+  },
+  stageAge: {
+    marginTop: 4,
+    fontSize: 13,
+    fontWeight: '700',
+    color: palette.secondary
+  },
+  stageDesc: {
+    marginTop: 6,
+    fontSize: 14,
+    lineHeight: 20,
+    color: palette.textSecondary
   },
   timeCard: {
     width: '15%',

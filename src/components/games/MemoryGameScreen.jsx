@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { CelebrationCard } from '../common/CelebrationCard';
 import { FeedbackBanner } from '../common/FeedbackBanner';
 import { GameHeader } from '../common/GameHeader';
@@ -9,9 +9,12 @@ import { useMemory } from '../../hooks/gameLogic/useMemory';
 
 export function MemoryGameScreen({ navigation }) {
   const { cards, moves, matchedPairs, totalPairs, showConfetti, feedback, handleCardClick, previewPhase } = useMemory();
+  const { width } = useWindowDimensions();
+  const compactBoard = cards.length > 8 || width < 390;
+  const extraCompactBoard = cards.length > 10 || width < 360;
 
   return (
-    <Screen scroll>
+    <Screen>
       <GameHeader
         title="Memory"
         score={matchedPairs}
@@ -26,26 +29,35 @@ export function MemoryGameScreen({ navigation }) {
         <Text style={styles.tipText}>{previewPhase ? 'Look closely and remember the cards' : 'Tap two cards to make a match'}</Text>
       </View>
 
-      <View style={styles.statsBar}>
-        <Text style={styles.statsText}>Moves: {moves}</Text>
-        <Text style={styles.statsText}>Pairs: {matchedPairs}/{totalPairs}</Text>
+      <View style={[styles.statsBar, compactBoard && styles.statsBarCompact]}>
+        <Text style={[styles.statsText, compactBoard && styles.statsTextCompact]}>Moves: {moves}</Text>
+        <Text style={[styles.statsText, compactBoard && styles.statsTextCompact]}>Pairs: {matchedPairs}/{totalPairs}</Text>
       </View>
 
-      <View style={styles.grid}>
+      <View style={[styles.grid, compactBoard && styles.gridCompact]}>
         {cards.map((card, index) => (
           <Pressable
             key={card.id}
             onPress={() => handleCardClick(index)}
             style={({ pressed }) => [
               styles.card,
+              compactBoard && styles.cardCompact,
+              extraCompactBoard && styles.cardExtraCompact,
               (card.faceUp || card.matched) && styles.faceUpCard,
               card.matched && styles.matchedCard,
               previewPhase && styles.previewCard,
               pressed && styles.pressed
             ]}
           >
-            <Text style={[styles.cardText, card.faceUp || card.matched ? styles.cardTextVisible : styles.cardTextHidden]}>
-              {card.faceUp || card.matched ? card.emoji : '❓'}
+            <Text
+              style={[
+                styles.cardText,
+                compactBoard && styles.cardTextCompact,
+                extraCompactBoard && styles.cardTextExtraCompact,
+                card.faceUp || card.matched ? styles.cardTextVisible : styles.cardTextHidden
+              ]}
+            >
+              {card.faceUp || card.matched ? card.emoji : '?'}
             </Text>
           </Pressable>
         ))}
@@ -71,22 +83,35 @@ const styles = StyleSheet.create({
   statsBar: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 24,
+    gap: 20,
     backgroundColor: 'rgba(255,255,255,0.86)',
     borderRadius: 24,
-    paddingVertical: 14,
-    marginBottom: 18
+    paddingVertical: 12,
+    marginBottom: 14
+  },
+  statsBarCompact: {
+    gap: 14,
+    paddingVertical: 10,
+    marginBottom: 10
   },
   statsText: {
     fontSize: 16,
     fontWeight: '800',
     color: palette.textSecondary
   },
+  statsTextCompact: {
+    fontSize: 14
+  },
   grid: {
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignContent: 'flex-start'
+  },
+  gridCompact: {
+    gap: 8
   },
   card: {
     width: '22%',
@@ -100,6 +125,13 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 6 },
     elevation: 2
+  },
+  cardCompact: {
+    borderRadius: 20
+  },
+  cardExtraCompact: {
+    width: '21%',
+    borderRadius: 18
   },
   faceUpCard: {
     backgroundColor: '#FFFFFF',
@@ -116,6 +148,12 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 34
+  },
+  cardTextCompact: {
+    fontSize: 28
+  },
+  cardTextExtraCompact: {
+    fontSize: 24
   },
   cardTextVisible: {
     color: palette.textPrimary

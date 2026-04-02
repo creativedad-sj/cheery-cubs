@@ -158,14 +158,14 @@ const styles = StyleSheet.create({
   },
   customOptionCard: {
     width: '47%',
-    minHeight: 156
+    minHeight: 124
   },
   customOptionCardCompact: {
-    minHeight: 132
+    minHeight: 104
   },
   customOptionCardExtraCompact: {
     width: '31%',
-    minHeight: 108
+    minHeight: 84
   },
   customOverlay: {
     position: 'absolute',

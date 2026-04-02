@@ -4,21 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Screen } from '../common/Screen';
 import { palette } from '../../theme/palette';
 import { useGameProgress } from '../../contexts/GameProgressContext';
-
-const gameLabels = {
-  'animal-game': 'Animals',
-  counting: 'Counting',
-  'tap-count': 'Tap Count',
-  'memory-game': 'Memory',
-  'odd-one-out': 'Odd One Out',
-  'shape-match': 'Shapes',
-  'color-match': 'Colors',
-  'emotion-game': 'Emotions',
-  'sports-game': 'Sports',
-  'instruments-game': 'Music',
-  'vehicles-game': 'Vehicles',
-  'landmarks-game': 'Landmarks'
-};
+import { useSettings } from '../../contexts/SettingsContext';
+import { childStagesById, gameCatalog, gameCatalogById, skillAreas } from '../../utils/constants';
 
 function formatPercent(value) {
   return `${Math.round(value)}%`;
@@ -63,6 +50,8 @@ function ProgressRow({ item }) {
 
 export function DashboardScreen({ navigation }) {
   const { stats } = useGameProgress();
+  const { childStageId } = useSettings();
+  const selectedStage = childStagesById[childStageId] || null;
 
   const progressItems = Object.entries(stats)
     .filter(([, value]) => (value.attempts || 0) > 0)
@@ -70,27 +59,53 @@ export function DashboardScreen({ navigation }) {
       const attempts = value.attempts || 0;
       const correct = value.correct || 0;
       const accuracy = attempts > 0 ? (correct / attempts) * 100 : 0;
+      const game = gameCatalogById[gameId];
 
       return {
         gameId,
-        label: gameLabels[gameId] || gameId,
+        label: game?.title || gameId,
+        skillArea: game?.skillArea || '',
         attempts,
         correct,
-        accuracy,
-        lastPlayed: value.lastPlayed || ''
+        accuracy
       };
     })
     .sort((a, b) => b.attempts - a.attempts || b.accuracy - a.accuracy);
+
+  const skillSummaries = skillAreas
+    .map((skill) => {
+      const games = progressItems.filter((item) => item.skillArea === skill.id);
+      const attempts = games.reduce((sum, item) => sum + item.attempts, 0);
+      const correct = games.reduce((sum, item) => sum + item.correct, 0);
+      const accuracy = attempts > 0 ? (correct / attempts) * 100 : 0;
+
+      return {
+        id: skill.id,
+        title: skill.title,
+        attempts,
+        correct,
+        accuracy
+      };
+    })
+    .filter((skill) => skill.attempts > 0);
 
   const totalAttempts = progressItems.reduce((sum, item) => sum + item.attempts, 0);
   const totalCorrect = progressItems.reduce((sum, item) => sum + item.correct, 0);
   const gamesPlayed = progressItems.length;
   const totalAccuracy = totalAttempts > 0 ? (totalCorrect / totalAttempts) * 100 : 0;
   const favoriteGame = progressItems[0];
-  const strongestGame = [...progressItems].sort((a, b) => b.accuracy - a.accuracy || b.correct - a.correct)[0];
-  const needsPractice = [...progressItems]
+  const strongestSkill = [...skillSummaries].sort((a, b) => b.accuracy - a.accuracy || b.correct - a.correct)[0];
+  const needsPractice = [...skillSummaries]
     .filter((item) => item.attempts >= 3)
     .sort((a, b) => a.accuracy - b.accuracy || b.attempts - a.attempts)[0];
+  const recommendedNow = gameCatalog
+    .filter((game) => !childStageId || game.recommendedStages.includes(childStageId))
+    .sort((a, b) => {
+      const aAttempts = stats[a.id]?.attempts || 0;
+      const bAttempts = stats[b.id]?.attempts || 0;
+
+      return aAttempts - bAttempts || Number(b.isCoreGame) - Number(a.isCoreGame) || a.recommendedOrder - b.recommendedOrder;
+    })[0];
 
   return (
     <Screen scroll>
@@ -102,10 +117,17 @@ export function DashboardScreen({ navigation }) {
       </View>
 
       <LinearGradient colors={['#FFFFFF', '#EEFDF6']} style={styles.heroCard}>
-        <Text style={styles.heroTitle}>Quick view of your child&apos;s progress</Text>
+        <Text style={styles.heroTitle}>See how your child is doing</Text>
         <Text style={styles.heroBody}>
-          See favorite games, celebrate strong skills, and spot what could use a little more practice.
+          Check favorite games, strong skills, and gentle suggestions for what to try next.
         </Text>
+        {selectedStage ? (
+          <View style={styles.stagePill}>
+            <Text style={styles.stagePillText}>
+              {selectedStage.title} {'\u00B7'} {selectedStage.ageLabel}
+            </Text>
+          </View>
+        ) : null}
       </LinearGradient>
 
       <View style={styles.statsRow}>
@@ -115,39 +137,45 @@ export function DashboardScreen({ navigation }) {
         <StatCard label="Games" value={gamesPlayed} />
       </View>
 
-      {progressItems.length > 0 ? (
-        <View style={styles.insightGrid}>
-          <InsightCard
-            title="Favorite game"
-            value={favoriteGame?.label || 'Not yet'}
-            helper={favoriteGame ? `${favoriteGame.attempts} tries so far` : 'Play a game to see insights'}
-            colors={['#FFFFFF', '#FFF4DB']}
-          />
-          <InsightCard
-            title="Strongest skill"
-            value={strongestGame?.label || 'Not yet'}
-            helper={strongestGame ? `${formatPercent(strongestGame.accuracy)} accuracy` : 'Play a game to see insights'}
-            colors={['#FFFFFF', '#EAFBF1']}
-          />
-          <InsightCard
-            title="Practice next"
-            value={needsPractice?.label || 'Everything looks good'}
-            helper={needsPractice ? `${formatPercent(needsPractice.accuracy)} accuracy right now` : 'No clear weak spot yet'}
-            colors={['#FFFFFF', '#FFF1F2']}
-          />
-        </View>
-      ) : null}
+      <View style={styles.insightGrid}>
+        <InsightCard
+          title="Favorite game"
+          value={favoriteGame?.label || 'Not yet'}
+          helper={favoriteGame ? `${favoriteGame.attempts} tries so far` : 'Play a few games to unlock insights'}
+          colors={['#FFFFFF', '#FFF4DB']}
+        />
+        <InsightCard
+          title="Strongest skill"
+          value={strongestSkill?.title || 'Not yet'}
+          helper={strongestSkill ? `${formatPercent(strongestSkill.accuracy)} accuracy` : 'Play a few games to unlock insights'}
+          colors={['#FFFFFF', '#EAFBF1']}
+        />
+        <InsightCard
+          title="Practice next"
+          value={needsPractice?.title || 'Everything looks good'}
+          helper={needsPractice ? `${formatPercent(needsPractice.accuracy)} accuracy right now` : 'No clear weak spot yet'}
+          colors={['#FFFFFF', '#FFF1F2']}
+        />
+        <InsightCard
+          title="Recommended now"
+          value={recommendedNow?.title || 'Choose a stage'}
+          helper={recommendedNow ? recommendedNow.learningGoal : 'Choose an age range on the home screen to get suggestions'}
+          colors={['#FFFFFF', '#EEF2FF']}
+        />
+      </View>
 
       <View style={styles.listCard}>
         <View style={styles.listHeader}>
-          <Text style={styles.listTitle}>Game progress</Text>
-          {progressItems.length > 0 ? <Text style={styles.listHint}>Most played first</Text> : null}
+          <Text style={styles.listTitle}>Skill progress</Text>
+          {skillSummaries.length > 0 ? <Text style={styles.listHint}>Grouped by learning area</Text> : null}
         </View>
 
-        {progressItems.length === 0 ? (
-          <Text style={styles.empty}>No progress yet. Start a game to see friendly insights here.</Text>
+        {skillSummaries.length === 0 ? (
+          <Text style={styles.empty}>No progress yet. Once your child starts playing, you&apos;ll see learning insights here.</Text>
         ) : (
-          progressItems.map((item) => <ProgressRow key={item.gameId} item={item} />)
+          skillSummaries
+            .sort((a, b) => b.attempts - a.attempts || b.accuracy - a.accuracy)
+            .map((item) => <ProgressRow key={item.id} item={{ ...item, label: item.title }} />)
         )}
       </View>
     </Screen>
@@ -182,6 +210,19 @@ const styles = StyleSheet.create({
     color: palette.textSecondary,
     fontSize: 15,
     lineHeight: 22
+  },
+  stagePill: {
+    alignSelf: 'flex-start',
+    marginTop: 12,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 8
+  },
+  stagePillText: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: palette.textPrimary
   },
   backButton: {
     backgroundColor: '#FFFFFF',
