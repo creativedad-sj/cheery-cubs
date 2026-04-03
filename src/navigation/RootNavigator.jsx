@@ -21,6 +21,8 @@ import { CountAndPackScreen } from '../components/games/CountAndPackScreen';
 import { WhichHasMoreScreen } from '../components/games/WhichHasMoreScreen';
 import { ShapeSortYardScreen } from '../components/games/ShapeSortYardScreen';
 import { NumberTraceScreen } from '../components/games/NumberTraceScreen';
+import { RhymeTimeScreen } from '../components/games/RhymeTimeScreen';
+import { FlatOrSolidScreen } from '../components/games/FlatOrSolidScreen';
 import { emotions, instruments, landmarks, sportsEquipment, vehicles } from '../utils/constants';
 
 const Stack = createNativeStackNavigator();
@@ -55,6 +57,7 @@ export function RootNavigator() {
       <Stack.Screen name="CountAndPack" component={CountAndPackScreen} />
       <Stack.Screen name="ShapeMatch" component={ShapeMatchScreen} />
       <Stack.Screen name="ShapeSortYard" component={ShapeSortYardScreen} />
+      <Stack.Screen name="FlatOrSolid" component={FlatOrSolidScreen} />
       <Stack.Screen name="ColorMatch" component={ColorMatchScreen} />
       <Stack.Screen name="EmotionGame" component={EmotionGameScreen} />
       <Stack.Screen name="SportsGame" component={SportsGameScreen} />
@@ -62,6 +65,7 @@ export function RootNavigator() {
       <Stack.Screen name="VehiclesGame" component={VehiclesGameScreen} />
       <Stack.Screen name="LandmarksGame" component={LandmarksGameScreen} />
       <Stack.Screen name="LetterHunt" component={LetterHuntScreen} />
+      <Stack.Screen name="RhymeTime" component={RhymeTimeScreen} />
       <Stack.Screen name="TapCount" component={TapCountScreen} />
       <Stack.Screen name="WhichHasMore" component={WhichHasMoreScreen} />
       <Stack.Screen name="NumberTrace" component={NumberTraceScreen} />

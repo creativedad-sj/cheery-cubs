@@ -332,7 +332,7 @@ export const childStages = [
     ageLabel: 'About ages 2 to 3',
     description: 'Great for matching, counting, and short challenge games.',
     featuredSkills: ['world-around-me', 'numbers-counting', 'memory-focus'],
-    featuredGames: ['ShapeSortYard', 'CountAndPack', 'MemoryGame']
+    featuredGames: ['ShapeSortYard', 'FlatOrSolid', 'CountAndPack']
   },
   {
     id: 'ready-kindergarten',
@@ -340,7 +340,7 @@ export const childStages = [
     ageLabel: 'About ages 4 to 5',
     description: 'Great for letters, patterns, memory, and bigger thinking games.',
     featuredSkills: ['letters-reading', 'thinking-patterns', 'memory-focus', 'numbers-counting'],
-    featuredGames: ['LetterHunt', 'WhichHasMore', 'PatternBuilder', 'NumberTrace']
+    featuredGames: ['LetterHunt', 'RhymeTime', 'WhichHasMore', 'NumberTrace']
   }
 ];
 
@@ -388,6 +388,21 @@ export const gameCatalog = [
     learningGoal: 'Sort shapes by what they look like, like round or cornered.',
     difficultyLevel: 'growing',
     recommendedOrder: 25,
+    isCoreGame: true
+  },
+  {
+    id: 'flat-or-solid',
+    route: 'FlatOrSolid',
+    title: 'Flat or Solid?',
+    icon: '\u25A3',
+    colors: ['#93C5FD', '#3B82F6'],
+    skillArea: 'world-around-me',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Sort everyday objects by whether they are flat shapes or solid shapes.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 28,
     isCoreGame: true
   },
   {
@@ -493,6 +508,21 @@ export const gameCatalog = [
     learningGoal: 'Find matching letters and notice upper- and lowercase forms.',
     difficultyLevel: 'growing',
     recommendedOrder: 10,
+    isCoreGame: true
+  },
+  {
+    id: 'rhyme-time',
+    route: 'RhymeTime',
+    title: 'Rhyme Time',
+    icon: '\u{1F3B6}',
+    colors: ['#F9A8D4', '#EC4899'],
+    skillArea: 'letters-reading',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Listen for words that sound alike and build early rhyming skills.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 20,
     isCoreGame: true
   },
   {
@@ -906,5 +936,19 @@ export const stickerMilestones = [
     name: 'Trace Star',
     desc: '10 traced numbers',
     check: (stats) => (stats['number-trace']?.correct || 0) >= 10
+  },
+  {
+    id: 'rhyme-rockstar',
+    emoji: '\u{1F3B6}',
+    name: 'Rhyme Rockstar',
+    desc: '10 rhyme wins',
+    check: (stats) => (stats['rhyme-time']?.correct || 0) >= 10
+  },
+  {
+    id: 'solid-sleuth',
+    emoji: '\u25A3',
+    name: 'Solid Sleuth',
+    desc: '10 flat or solid wins',
+    check: (stats) => (stats['flat-or-solid']?.correct || 0) >= 10
   }
 ];
