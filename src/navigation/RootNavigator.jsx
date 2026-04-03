@@ -29,6 +29,12 @@ import { StorySequenceScreen } from '../components/games/StorySequenceScreen';
 import { SameOrDifferentScreen } from '../components/games/SameOrDifferentScreen';
 import { ComposeAndDecomposeScreen } from '../components/games/ComposeAndDecomposeScreen';
 import { WordFamiliesScreen } from '../components/games/WordFamiliesScreen';
+import { BabyPeekabooScreen } from '../components/games/BabyPeekabooScreen';
+import { BabyPatACakeScreen } from '../components/games/BabyPatACakeScreen';
+import { BabyByeByeScreen } from '../components/games/BabyByeByeScreen';
+import { BabyFindToyScreen } from '../components/games/BabyFindToyScreen';
+import { BabyPutInTakeOutScreen } from '../components/games/BabyPutInTakeOutScreen';
+import { BabyMirrorPlayScreen } from '../components/games/BabyMirrorPlayScreen';
 import { emotions, instruments, landmarks, sportsEquipment, vehicles } from '../utils/constants';
 
 const Stack = createNativeStackNavigator();
@@ -58,6 +64,12 @@ export function RootNavigator() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="AllGames" component={AllGamesScreen} />
+      <Stack.Screen name="BabyPeekaboo" component={BabyPeekabooScreen} />
+      <Stack.Screen name="BabyPatACake" component={BabyPatACakeScreen} />
+      <Stack.Screen name="BabyByeBye" component={BabyByeByeScreen} />
+      <Stack.Screen name="BabyFindToy" component={BabyFindToyScreen} />
+      <Stack.Screen name="BabyPutInTakeOut" component={BabyPutInTakeOutScreen} />
+      <Stack.Screen name="BabyMirrorPlay" component={BabyMirrorPlayScreen} />
       <Stack.Screen name="Animals" component={AnimalGameScreen} />
       <Stack.Screen name="Counting" component={CountingScreen} />
       <Stack.Screen name="CountAndPack" component={CountAndPackScreen} />

@@ -281,6 +281,13 @@ export const pathThemes = [
 
 export const skillAreas = [
   {
+    id: 'baby-co-play',
+    title: 'Baby Co-Play',
+    icon: '\u{1F476}',
+    description: 'Gentle parent-and-baby activities for peekaboo, waving, clapping, and first play routines.',
+    colors: ['#FCE7F3', '#FFF1F2']
+  },
+  {
     id: 'letters-reading',
     title: 'Letters & Reading',
     icon: 'ABC',
@@ -319,6 +326,14 @@ export const skillAreas = [
 
 export const childStages = [
   {
+    id: 'baby-co-play',
+    title: 'Baby Co-Play',
+    ageLabel: 'Birth to 12 months',
+    description: 'Best for parent-led peekaboo, waving, clapping, and simple cause-and-effect play.',
+    featuredSkills: ['baby-co-play'],
+    featuredGames: ['BabyPeekaboo', 'BabyPatACake', 'BabyFindToy']
+  },
+  {
     id: 'early-learner',
     title: 'Early Learner',
     ageLabel: 'About ages 1 to 2',
@@ -345,6 +360,96 @@ export const childStages = [
 ];
 
 export const gameCatalog = [
+  {
+    id: 'baby-peekaboo',
+    route: 'BabyPeekaboo',
+    title: 'Peekaboo',
+    icon: '\u{1F648}',
+    colors: ['#F9A8D4', '#F472B6'],
+    skillArea: 'baby-co-play',
+    recommendedStages: ['baby-co-play'],
+    minAgeLabel: '0',
+    maxAgeLabel: '1',
+    learningGoal: 'Practice peekaboo and turn-taking with a parent beside your baby.',
+    difficultyLevel: 'co-play',
+    recommendedOrder: 10,
+    isCoreGame: true
+  },
+  {
+    id: 'baby-pat-a-cake',
+    route: 'BabyPatACake',
+    title: 'Pat-a-Cake',
+    icon: '\u{1F44F}',
+    colors: ['#FDBA74', '#FB7185'],
+    skillArea: 'baby-co-play',
+    recommendedStages: ['baby-co-play'],
+    minAgeLabel: '0',
+    maxAgeLabel: '1',
+    learningGoal: 'Clap along with a parent and practice simple play routines together.',
+    difficultyLevel: 'co-play',
+    recommendedOrder: 20,
+    isCoreGame: true
+  },
+  {
+    id: 'baby-bye-bye',
+    route: 'BabyByeBye',
+    title: 'Wave Bye-Bye',
+    icon: '\u{1F44B}',
+    colors: ['#93C5FD', '#60A5FA'],
+    skillArea: 'baby-co-play',
+    recommendedStages: ['baby-co-play'],
+    minAgeLabel: '0',
+    maxAgeLabel: '1',
+    learningGoal: 'Practice waving and simple social routines with familiar words.',
+    difficultyLevel: 'co-play',
+    recommendedOrder: 30,
+    isCoreGame: true
+  },
+  {
+    id: 'baby-find-toy',
+    route: 'BabyFindToy',
+    title: 'Find the Toy',
+    icon: '\u{1F9F8}',
+    colors: ['#A7F3D0', '#34D399'],
+    skillArea: 'baby-co-play',
+    recommendedStages: ['baby-co-play'],
+    minAgeLabel: '0',
+    maxAgeLabel: '1',
+    learningGoal: 'Practice looking for an object after it is hidden.',
+    difficultyLevel: 'co-play',
+    recommendedOrder: 40,
+    isCoreGame: true
+  },
+  {
+    id: 'baby-put-in-take-out',
+    route: 'BabyPutInTakeOut',
+    title: 'Put In, Take Out',
+    icon: '\u{1F9FA}',
+    colors: ['#FDE68A', '#F59E0B'],
+    skillArea: 'baby-co-play',
+    recommendedStages: ['baby-co-play'],
+    minAgeLabel: '0',
+    maxAgeLabel: '1',
+    learningGoal: 'Practice putting toys into a basket and taking them back out with a parent.',
+    difficultyLevel: 'co-play',
+    recommendedOrder: 50,
+    isCoreGame: true
+  },
+  {
+    id: 'baby-mirror-play',
+    route: 'BabyMirrorPlay',
+    title: 'Mirror Play',
+    icon: '\u{1FA9E}',
+    colors: ['#C4B5FD', '#8B5CF6'],
+    skillArea: 'baby-co-play',
+    recommendedStages: ['baby-co-play'],
+    minAgeLabel: '0',
+    maxAgeLabel: '1',
+    learningGoal: 'Explore faces, smiles, and simple expressions together like mirror play.',
+    difficultyLevel: 'co-play',
+    recommendedOrder: 60,
+    isCoreGame: true
+  },
   {
     id: 'animal-game',
     route: 'Animals',
