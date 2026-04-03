@@ -340,7 +340,7 @@ export const childStages = [
     ageLabel: 'About ages 4 to 5',
     description: 'Great for letters, patterns, memory, and bigger thinking games.',
     featuredSkills: ['letters-reading', 'thinking-patterns', 'memory-focus', 'numbers-counting'],
-    featuredGames: ['LetterHunt', 'RhymeTime', 'WhichHasMore', 'NumberTrace']
+    featuredGames: ['BeginningSounds', 'WordFamilies', 'ComposeAndDecompose', 'StorySequence']
   }
 ];
 
@@ -526,6 +526,36 @@ export const gameCatalog = [
     isCoreGame: true
   },
   {
+    id: 'word-families',
+    route: 'WordFamilies',
+    title: 'Word Families',
+    icon: '\u{1F4D6}',
+    colors: ['#F59E0B', '#F97316'],
+    skillArea: 'letters-reading',
+    recommendedStages: ['ready-kindergarten'],
+    minAgeLabel: '4',
+    maxAgeLabel: '5',
+    learningGoal: 'Match simple words that share the same ending sound.',
+    difficultyLevel: 'advanced',
+    recommendedOrder: 40,
+    isCoreGame: true
+  },
+  {
+    id: 'beginning-sounds',
+    route: 'BeginningSounds',
+    title: 'Beginning Sounds',
+    icon: '\u{1F50A}',
+    colors: ['#A78BFA', '#6366F1'],
+    skillArea: 'letters-reading',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Match pictures to the sound they start with.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 30,
+    isCoreGame: true
+  },
+  {
     id: 'counting',
     route: 'Counting',
     title: 'Counting',
@@ -601,6 +631,36 @@ export const gameCatalog = [
     isCoreGame: true
   },
   {
+    id: 'make-ten',
+    route: 'MakeTen',
+    title: 'Make 10',
+    icon: '\u0031\u0030',
+    colors: ['#22C55E', '#14B8A6'],
+    skillArea: 'numbers-counting',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '4',
+    maxAgeLabel: '5',
+    learningGoal: 'Build number pairs that make 10.',
+    difficultyLevel: 'advanced',
+    recommendedOrder: 50,
+    isCoreGame: true
+  },
+  {
+    id: 'compose-decompose',
+    route: 'ComposeAndDecompose',
+    title: 'Compose & Decompose',
+    icon: '\u2795',
+    colors: ['#10B981', '#059669'],
+    skillArea: 'numbers-counting',
+    recommendedStages: ['ready-kindergarten'],
+    minAgeLabel: '4',
+    maxAgeLabel: '5',
+    learningGoal: 'Break numbers into parts and find the missing piece.',
+    difficultyLevel: 'advanced',
+    recommendedOrder: 60,
+    isCoreGame: true
+  },
+  {
     id: 'memory-game',
     route: 'MemoryGame',
     title: 'Memory',
@@ -631,6 +691,21 @@ export const gameCatalog = [
     isCoreGame: false
   },
   {
+    id: 'same-or-different',
+    route: 'SameOrDifferent',
+    title: 'Same or Different?',
+    icon: '\u21C4',
+    colors: ['#38BDF8', '#0EA5E9'],
+    skillArea: 'thinking-patterns',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Compare two pictures and decide whether they match.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 35,
+    isCoreGame: true
+  },
+  {
     id: 'pattern-builder',
     route: 'PatternBuilder',
     title: 'Pattern Train',
@@ -643,6 +718,21 @@ export const gameCatalog = [
     learningGoal: 'Spot repeating rules and build what comes next.',
     difficultyLevel: 'growing',
     recommendedOrder: 10,
+    isCoreGame: true
+  },
+  {
+    id: 'story-sequence',
+    route: 'StorySequence',
+    title: 'Story Sequence',
+    icon: '\u{1F4DC}',
+    colors: ['#A78BFA', '#8B5CF6'],
+    skillArea: 'thinking-patterns',
+    recommendedStages: ['ready-kindergarten'],
+    minAgeLabel: '4',
+    maxAgeLabel: '5',
+    learningGoal: 'Put little stories in order from first to last.',
+    difficultyLevel: 'advanced',
+    recommendedOrder: 45,
     isCoreGame: true
   },
   {
@@ -950,5 +1040,47 @@ export const stickerMilestones = [
     name: 'Solid Sleuth',
     desc: '10 flat or solid wins',
     check: (stats) => (stats['flat-or-solid']?.correct || 0) >= 10
+  },
+  {
+    id: 'sound-scout',
+    emoji: '\u{1F50A}',
+    name: 'Sound Scout',
+    desc: '10 beginning sound wins',
+    check: (stats) => (stats['beginning-sounds']?.correct || 0) >= 10
+  },
+  {
+    id: 'make-ten-master',
+    emoji: '\u0031\u0030',
+    name: 'Make Ten Master',
+    desc: '10 make 10 wins',
+    check: (stats) => (stats['make-ten']?.correct || 0) >= 10
+  },
+  {
+    id: 'word-family-friend',
+    emoji: '\u{1F4D6}',
+    name: 'Word Family Friend',
+    desc: '10 word family wins',
+    check: (stats) => (stats['word-families']?.correct || 0) >= 10
+  },
+  {
+    id: 'number-builder',
+    emoji: '\u2795',
+    name: 'Number Builder',
+    desc: '10 compose and decompose wins',
+    check: (stats) => (stats['compose-decompose']?.correct || 0) >= 10
+  },
+  {
+    id: 'match-maker',
+    emoji: '\u21C4',
+    name: 'Match Maker',
+    desc: '10 same or different wins',
+    check: (stats) => (stats['same-or-different']?.correct || 0) >= 10
+  },
+  {
+    id: 'story-stacker',
+    emoji: '\u{1F4DC}',
+    name: 'Story Stacker',
+    desc: '10 story sequence wins',
+    check: (stats) => (stats['story-sequence']?.correct || 0) >= 10
   }
 ];

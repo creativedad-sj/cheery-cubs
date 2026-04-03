@@ -23,6 +23,12 @@ import { ShapeSortYardScreen } from '../components/games/ShapeSortYardScreen';
 import { NumberTraceScreen } from '../components/games/NumberTraceScreen';
 import { RhymeTimeScreen } from '../components/games/RhymeTimeScreen';
 import { FlatOrSolidScreen } from '../components/games/FlatOrSolidScreen';
+import { BeginningSoundsScreen } from '../components/games/BeginningSoundsScreen';
+import { MakeTenScreen } from '../components/games/MakeTenScreen';
+import { StorySequenceScreen } from '../components/games/StorySequenceScreen';
+import { SameOrDifferentScreen } from '../components/games/SameOrDifferentScreen';
+import { ComposeAndDecomposeScreen } from '../components/games/ComposeAndDecomposeScreen';
+import { WordFamiliesScreen } from '../components/games/WordFamiliesScreen';
 import { emotions, instruments, landmarks, sportsEquipment, vehicles } from '../utils/constants';
 
 const Stack = createNativeStackNavigator();
@@ -66,12 +72,18 @@ export function RootNavigator() {
       <Stack.Screen name="LandmarksGame" component={LandmarksGameScreen} />
       <Stack.Screen name="LetterHunt" component={LetterHuntScreen} />
       <Stack.Screen name="RhymeTime" component={RhymeTimeScreen} />
+      <Stack.Screen name="BeginningSounds" component={BeginningSoundsScreen} />
+      <Stack.Screen name="WordFamilies" component={WordFamiliesScreen} />
       <Stack.Screen name="TapCount" component={TapCountScreen} />
       <Stack.Screen name="WhichHasMore" component={WhichHasMoreScreen} />
       <Stack.Screen name="NumberTrace" component={NumberTraceScreen} />
+      <Stack.Screen name="MakeTen" component={MakeTenScreen} />
+      <Stack.Screen name="ComposeAndDecompose" component={ComposeAndDecomposeScreen} />
       <Stack.Screen name="MemoryGame" component={MemoryGameScreen} />
       <Stack.Screen name="OddOneOut" component={OddOneOutScreen} />
+      <Stack.Screen name="SameOrDifferent" component={SameOrDifferentScreen} />
       <Stack.Screen name="PatternBuilder" component={PatternBuilderScreen} />
+      <Stack.Screen name="StorySequence" component={StorySequenceScreen} />
       <Stack.Screen name="ShadowMatch" component={ShadowMatchScreen} />
       <Stack.Screen name="FollowPath" component={FollowPathScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
