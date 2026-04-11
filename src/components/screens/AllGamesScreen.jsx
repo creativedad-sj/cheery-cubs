@@ -43,7 +43,7 @@ export function AllGamesScreen({ navigation }) {
       <LinearGradient colors={['#FFFFFF', '#F8FAFC']} style={styles.heroCard}>
         <Text style={styles.heroTitle}>Browse all games</Text>
         <Text style={styles.heroBody}>
-          Explore every game by learning area. Core recommendations appear first, and extra activities stay available below.
+          Explore every game by learning area. Core recommendations appear first, and bonus activities live in Extra Play.
         </Text>
       </LinearGradient>
 

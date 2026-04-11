@@ -144,6 +144,50 @@ export const homeHelpers = [
   { id: 'book', name: 'Book', emoji: '\u{1F4D5}' }
 ];
 
+export const clothes = [
+  { id: 'hat', name: 'Hat', emoji: '\u{1F9E2}' },
+  { id: 'shirt', name: 'Shirt', emoji: '\u{1F455}' },
+  { id: 'pants', name: 'Pants', emoji: '\u{1F456}' },
+  { id: 'dress', name: 'Dress', emoji: '\u{1F457}' },
+  { id: 'shoe', name: 'Shoe', emoji: '\u{1F45F}' },
+  { id: 'sock', name: 'Sock', emoji: '\u{1F9E6}' },
+  { id: 'glove', name: 'Glove', emoji: '\u{1F9E4}' },
+  { id: 'scarf', name: 'Scarf', emoji: '\u{1F9E3}' }
+];
+
+export const weatherItems = [
+  { id: 'sunny', name: 'Sun', emoji: '\u2600\uFE0F' },
+  { id: 'rainy', name: 'Rain', emoji: '\u{1F327}\uFE0F' },
+  { id: 'cloudy', name: 'Cloud', emoji: '\u2601\uFE0F' },
+  { id: 'snowy', name: 'Snow', emoji: '\u2744\uFE0F' },
+  { id: 'windy', name: 'Wind', emoji: '\u{1F32C}\uFE0F' },
+  { id: 'rainbow', name: 'Rainbow', emoji: '\u{1F308}' },
+  { id: 'storm', name: 'Storm', emoji: '\u26C8\uFE0F' },
+  { id: 'umbrella', name: 'Umbrella', emoji: '\u2602\uFE0F' }
+];
+
+export const healthyHabits = [
+  { id: 'brush-teeth', name: 'Brush Teeth', emoji: '\u{1FAA5}' },
+  { id: 'wash-hands', name: 'Wash Hands', emoji: '\u{1F9FC}' },
+  { id: 'drink-water', name: 'Drink Water', emoji: '\u{1F4A7}' },
+  { id: 'sleep', name: 'Sleep', emoji: '\u{1F634}' },
+  { id: 'eat-fruit', name: 'Eat Fruit', emoji: '\u{1F34E}' },
+  { id: 'stretch', name: 'Stretch', emoji: '\u{1F9D8}' },
+  { id: 'bath-time', name: 'Bath Time', emoji: '\u{1F6C1}' },
+  { id: 'tidy-up', name: 'Tidy Up', emoji: '\u{1F9F9}' }
+];
+
+export const communityHelpers = [
+  { id: 'doctor', name: 'Doctor', emoji: '\u{2695}\uFE0F' },
+  { id: 'teacher', name: 'Teacher', emoji: '\u{1F9D1}\u200D\u{1F3EB}' },
+  { id: 'firefighter', name: 'Firefighter', emoji: '\u{1F9D1}\u200D\u{1F692}' },
+  { id: 'chef', name: 'Chef', emoji: '\u{1F9D1}\u200D\u{1F373}' },
+  { id: 'builder', name: 'Builder', emoji: '\u{1F477}' },
+  { id: 'farmer', name: 'Farmer', emoji: '\u{1F9D1}\u200D\u{1F33E}' },
+  { id: 'mail-carrier', name: 'Mail Carrier', emoji: '\u{1F9D1}\u200D\u2709\uFE0F' },
+  { id: 'police', name: 'Police Officer', emoji: '\u{1F46E}' }
+];
+
 export const countingObjects = [
   { emoji: '\u{1F34E}', name: 'apples' },
   { emoji: '\u{1F34C}', name: 'bananas' },
@@ -354,6 +398,13 @@ export const skillAreas = [
     icon: '\u{1F30D}',
     description: 'Name colors, shapes, animals, feelings, and familiar things.',
     colors: ['#BBF7D0', '#ECFDF5']
+  },
+  {
+    id: 'extra-play',
+    title: 'Extra Play',
+    icon: '\u2728',
+    description: 'Bonus games to explore outside the core learning path.',
+    colors: ['#F3F4F6', '#E5E7EB']
   }
 ];
 
@@ -379,16 +430,16 @@ export const childStages = [
     title: 'Growing Learner',
     ageLabel: 'About ages 2 to 3',
     description: 'Great for matching, counting, and short challenge games.',
-    featuredSkills: ['world-around-me', 'numbers-counting', 'memory-focus'],
-    featuredGames: ['ShapeSortYard', 'BodyParts', 'VisualSearch']
+    featuredSkills: ['world-around-me', 'thinking-patterns', 'numbers-counting', 'memory-focus'],
+    featuredGames: ['ShapeSortYard', 'BodyParts', 'HealthyHabits']
   },
   {
     id: 'ready-kindergarten',
     title: 'Ready for Kindergarten',
     ageLabel: 'About ages 4 to 5',
     description: 'Great for letters, patterns, memory, and bigger thinking games.',
-    featuredSkills: ['letters-reading', 'thinking-patterns', 'memory-focus', 'numbers-counting'],
-    featuredGames: ['BeginningSounds', 'VisualSearch', 'FoodMatch', 'ComposeAndDecompose']
+    featuredSkills: ['letters-reading', 'thinking-patterns', 'memory-focus', 'numbers-counting', 'world-around-me'],
+    featuredGames: ['BeginningSounds', 'VisualSearch', 'CommunityHelpers', 'ComposeAndDecompose']
   }
 ];
 
@@ -519,7 +570,7 @@ export const gameCatalog = [
     title: 'Shape Sort Yard',
     icon: '\u{1F539}',
     colors: ['#C4B5FD', '#8B5CF6'],
-    skillArea: 'world-around-me',
+    skillArea: 'thinking-patterns',
     recommendedStages: ['growing-learner', 'ready-kindergarten'],
     minAgeLabel: '2',
     maxAgeLabel: '5',
@@ -534,7 +585,7 @@ export const gameCatalog = [
     title: 'Flat or Solid?',
     icon: '\u25A3',
     colors: ['#93C5FD', '#3B82F6'],
-    skillArea: 'world-around-me',
+    skillArea: 'thinking-patterns',
     recommendedStages: ['growing-learner', 'ready-kindergarten'],
     minAgeLabel: '3',
     maxAgeLabel: '5',
@@ -609,13 +660,73 @@ export const gameCatalog = [
     title: 'Home Helpers',
     icon: '\u{1F3E0}',
     colors: ['#A7F3D0', '#34D399'],
-    skillArea: 'world-around-me',
+    skillArea: 'extra-play',
     recommendedStages: ['growing-learner', 'ready-kindergarten'],
     minAgeLabel: '2',
     maxAgeLabel: '5',
     learningGoal: 'Recognize helpful things you use around the house every day.',
     difficultyLevel: 'growing',
     recommendedOrder: 55,
+    isCoreGame: false
+  },
+  {
+    id: 'clothes-match',
+    route: 'ClothesMatch',
+    title: 'Clothes Match',
+    icon: '\u{1F455}',
+    colors: ['#C4B5FD', '#8B5CF6'],
+    skillArea: 'extra-play',
+    recommendedStages: ['early-learner', 'growing-learner'],
+    minAgeLabel: '1',
+    maxAgeLabel: '4',
+    learningGoal: 'Name clothes and spot what we wear every day.',
+    difficultyLevel: 'starter',
+    recommendedOrder: 58,
+    isCoreGame: false
+  },
+  {
+    id: 'weather-watch',
+    route: 'WeatherWatch',
+    title: 'Weather Watch',
+    icon: '\u2601\uFE0F',
+    colors: ['#BFDBFE', '#38BDF8'],
+    skillArea: 'world-around-me',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '2',
+    maxAgeLabel: '5',
+    learningGoal: 'Notice simple weather symbols like sun, clouds, rain, and snow.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 62,
+    isCoreGame: true
+  },
+  {
+    id: 'healthy-habits',
+    route: 'HealthyHabits',
+    title: 'Healthy Habits',
+    icon: '\u{1F9FC}',
+    colors: ['#A7F3D0', '#10B981'],
+    skillArea: 'world-around-me',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '2',
+    maxAgeLabel: '5',
+    learningGoal: 'Practice the names of healthy everyday routines like brushing and washing.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 65,
+    isCoreGame: true
+  },
+  {
+    id: 'community-helpers',
+    route: 'CommunityHelpers',
+    title: 'Community Helpers',
+    icon: '\u{1F6D1}',
+    colors: ['#FCA5A5', '#F97316'],
+    skillArea: 'world-around-me',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Recognize people who help in the community, like doctors and firefighters.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 70,
     isCoreGame: true
   },
   {
@@ -624,7 +735,7 @@ export const gameCatalog = [
     title: 'Sports',
     icon: '\u26BD',
     colors: ['#2DD4BF', '#06B6D4'],
-    skillArea: 'world-around-me',
+    skillArea: 'extra-play',
     recommendedStages: ['growing-learner', 'ready-kindergarten'],
     minAgeLabel: '2',
     maxAgeLabel: '5',
@@ -639,7 +750,7 @@ export const gameCatalog = [
     title: 'Music',
     icon: '\u{1F3B8}',
     colors: ['#F472B6', '#FB7185'],
-    skillArea: 'world-around-me',
+    skillArea: 'extra-play',
     recommendedStages: ['growing-learner', 'ready-kindergarten'],
     minAgeLabel: '2',
     maxAgeLabel: '5',
@@ -669,7 +780,7 @@ export const gameCatalog = [
     title: 'Landmarks',
     icon: '\u{1F5FC}',
     colors: ['#FBBF24', '#FB923C'],
-    skillArea: 'world-around-me',
+    skillArea: 'extra-play',
     recommendedStages: ['ready-kindergarten'],
     minAgeLabel: '4',
     maxAgeLabel: '5',
@@ -699,7 +810,7 @@ export const gameCatalog = [
     title: 'Rhyme Time',
     icon: '\u{1F3B6}',
     colors: ['#F9A8D4', '#EC4899'],
-    skillArea: 'letters-reading',
+    skillArea: 'extra-play',
     recommendedStages: ['growing-learner', 'ready-kindergarten'],
     minAgeLabel: '3',
     maxAgeLabel: '5',
@@ -774,7 +885,7 @@ export const gameCatalog = [
     title: 'Counting',
     icon: '\u{1F522}',
     colors: ['#F87171', '#EC4899'],
-    skillArea: 'numbers-counting',
+    skillArea: 'extra-play',
     recommendedStages: ['early-learner', 'growing-learner'],
     minAgeLabel: '1',
     maxAgeLabel: '4',
@@ -864,7 +975,7 @@ export const gameCatalog = [
     title: 'Make 10',
     icon: '\u0031\u0030',
     colors: ['#22C55E', '#14B8A6'],
-    skillArea: 'numbers-counting',
+    skillArea: 'extra-play',
     recommendedStages: ['growing-learner', 'ready-kindergarten'],
     minAgeLabel: '4',
     maxAgeLabel: '5',
@@ -969,7 +1080,7 @@ export const gameCatalog = [
     title: 'Odd One Out',
     icon: '\u{1F914}',
     colors: ['#22D3EE', '#3B82F6'],
-    skillArea: 'thinking-patterns',
+    skillArea: 'extra-play',
     recommendedStages: ['growing-learner', 'ready-kindergarten'],
     minAgeLabel: '3',
     maxAgeLabel: '5',
@@ -1268,6 +1379,34 @@ export const stickerMilestones = [
     name: 'Home Helper',
     desc: '10 correct home helper answers',
     check: (stats) => (stats['home-helpers']?.correct || 0) >= 10
+  },
+  {
+    id: 'closet-star',
+    emoji: '\u{1F455}',
+    name: 'Closet Star',
+    desc: '10 correct clothes answers',
+    check: (stats) => (stats['clothes-match']?.correct || 0) >= 10
+  },
+  {
+    id: 'weather-watcher',
+    emoji: '\u2601\uFE0F',
+    name: 'Weather Watcher',
+    desc: '10 correct weather answers',
+    check: (stats) => (stats['weather-watch']?.correct || 0) >= 10
+  },
+  {
+    id: 'healthy-habit-hero',
+    emoji: '\u{1F9FC}',
+    name: 'Healthy Habit Hero',
+    desc: '10 correct healthy habit answers',
+    check: (stats) => (stats['healthy-habits']?.correct || 0) >= 10
+  },
+  {
+    id: 'helper-heart',
+    emoji: '\u{1F6D1}',
+    name: 'Helper Heart',
+    desc: '10 correct community helper answers',
+    check: (stats) => (stats['community-helpers']?.correct || 0) >= 10
   },
   {
     id: 'sports-star',

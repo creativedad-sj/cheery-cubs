@@ -22,6 +22,12 @@ Phase 1 includes:
 - stable web and Expo bundling
 - enough variety across categories to support real playtesting
 
+Phase 1 exists to prepare for the bigger catalog goal:
+
+- `6` top-level categories
+- `10` distinct games in each category
+- `60` core games total
+
 Phase 1 does not include:
 
 - all 60 planned roadmap games
@@ -30,9 +36,12 @@ Phase 1 does not include:
 - deep curriculum reporting
 
 ## Current Status
-Current game count: `45`
+Current implemented game count: `49`
+Current core-catalog count: `40`
+Current extra-play count: `9`
 Phase 1 implementation status: `complete, pending full-device QA`
-Phase 2 status: `started with the first World Around Me wave`
+Phase 2 status: `world-around-me expansion started, then curated into core vs extra`
+Product review status: `completed on April 11, 2026`
 
 Latest deployed milestone: `April 10, 2026`
 
@@ -44,14 +53,18 @@ Latest deployed batch included:
 - Phase 1 memory wave
 - parent-flow curation improvements
 
-Current top-level category counts:
+Current core category counts:
 
 - `Baby Co-Play`: 6
-- `Letters & Reading`: 6
-- `Numbers & Counting`: 8
-- `Thinking & Patterns`: 7
+- `Letters & Reading`: 5
+- `Numbers & Counting`: 6
+- `Thinking & Patterns`: 8
 - `Memory & Focus`: 5
-- `World Around Me`: 13
+- `World Around Me`: 10
+
+Separate non-core bucket:
+
+- `Extra Play`: 9
 
 Current stage structure:
 
@@ -76,8 +89,18 @@ These were added to strengthen the launch catalog in letters, numbers, and think
 - `Body Parts`
 - `Food Match`
 - `Home Helpers`
+- `Clothes Match`
+- `Weather Watch`
+- `Healthy Habits`
+- `Community Helpers`
 
-These are the first `World Around Me` expansion games for Phase 2.
+These are the current `World Around Me` expansion games for Phase 2.
+
+After catalog review and cleanup:
+
+- `World Around Me` was curated down to a true `10-game` core set
+- duplicated or lower-priority titles were moved into `Extra Play`
+- `Shape Sort Yard` and `Flat or Solid?` were reclassified into `Thinking & Patterns`
 
 ## What Is Already In Good Shape
 - parent-first home structure
@@ -92,8 +115,10 @@ These are the first `World Around Me` expansion games for Phase 2.
 
 ## Biggest Gaps
 - some games still need a polish pass after real kid testing
-- there is still some overlap between similar game types
+- the catalog is cleaner now, but some overlap still remains inside the core set
 - launch documentation, QA notes, and roadmap now exist, but need to stay updated as the catalog grows
+- shared UI still has some broken symbol text in common components
+- too much of the catalog still leans on the same category-game shell
 
 ## Recommended Completion Criteria For Phase 1
 Treat Phase 1 as complete when these are true:
@@ -105,7 +130,8 @@ Treat Phase 1 as complete when these are true:
 - the app can be demoed without obvious rough edges
 
 ## Immediate Next Priorities
-1. Test the new `World Around Me` wave on device
-2. Decide whether `World Around Me` should keep expanding next or pause for polish
-3. Finalize which duplicate-feeling games stay visible as extras and which should merge later
-4. Keep Phase 2 growth focused on distinct mechanics, not filler volume
+1. Test the curated core catalog on device
+2. Fix the shared UI encoding issues called out in `docs/product-review.md`
+3. Build the biggest remaining gaps in `Memory & Focus`
+4. Expand `Baby Co-Play` and `Letters & Reading` with more distinct mechanics
+5. Keep `Extra Play` available without letting it distort the true `60-game` target

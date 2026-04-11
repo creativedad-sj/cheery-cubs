@@ -73,6 +73,7 @@ export function DashboardScreen({ navigation }) {
     .sort((a, b) => b.attempts - a.attempts || b.accuracy - a.accuracy);
 
   const skillSummaries = skillAreas
+    .filter((skill) => skill.id !== 'extra-play')
     .map((skill) => {
       const games = progressItems.filter((item) => item.skillArea === skill.id);
       const attempts = games.reduce((sum, item) => sum + item.attempts, 0);

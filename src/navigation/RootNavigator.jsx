@@ -45,12 +45,16 @@ import { BabyPutInTakeOutScreen } from '../components/games/BabyPutInTakeOutScre
 import { BabyMirrorPlayScreen } from '../components/games/BabyMirrorPlayScreen';
 import {
   bodyParts,
+  clothes,
+  communityHelpers,
   emotions,
   foods,
+  healthyHabits,
   homeHelpers,
   instruments,
   landmarks,
   sportsEquipment,
+  weatherItems,
   vehicles
 } from '../utils/constants';
 
@@ -88,6 +92,22 @@ function HomeHelpersScreen(props) {
   return <CategoryGameScreen {...props} title="Home Helpers" items={homeHelpers} gameId="home-helpers" promptPrefix="Find the" />;
 }
 
+function ClothesMatchScreen(props) {
+  return <CategoryGameScreen {...props} title="Clothes Match" items={clothes} gameId="clothes-match" promptPrefix="Find the" />;
+}
+
+function WeatherWatchScreen(props) {
+  return <CategoryGameScreen {...props} title="Weather Watch" items={weatherItems} gameId="weather-watch" promptPrefix="Find the" />;
+}
+
+function HealthyHabitsScreen(props) {
+  return <CategoryGameScreen {...props} title="Healthy Habits" items={healthyHabits} gameId="healthy-habits" promptPrefix="Find the" />;
+}
+
+function CommunityHelpersScreen(props) {
+  return <CategoryGameScreen {...props} title="Community Helpers" items={communityHelpers} gameId="community-helpers" promptPrefix="Find the" />;
+}
+
 export function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -110,6 +130,10 @@ export function RootNavigator() {
       <Stack.Screen name="FoodMatch" component={FoodMatchScreen} />
       <Stack.Screen name="EmotionGame" component={EmotionGameScreen} />
       <Stack.Screen name="HomeHelpers" component={HomeHelpersScreen} />
+      <Stack.Screen name="ClothesMatch" component={ClothesMatchScreen} />
+      <Stack.Screen name="WeatherWatch" component={WeatherWatchScreen} />
+      <Stack.Screen name="HealthyHabits" component={HealthyHabitsScreen} />
+      <Stack.Screen name="CommunityHelpers" component={CommunityHelpersScreen} />
       <Stack.Screen name="SportsGame" component={SportsGameScreen} />
       <Stack.Screen name="InstrumentsGame" component={InstrumentsGameScreen} />
       <Stack.Screen name="VehiclesGame" component={VehiclesGameScreen} />
