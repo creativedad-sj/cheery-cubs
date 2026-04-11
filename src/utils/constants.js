@@ -339,7 +339,7 @@ export const childStages = [
     ageLabel: 'About ages 1 to 2',
     description: 'Great for first taps, first words, and simple picture play.',
     featuredSkills: ['world-around-me', 'numbers-counting'],
-    featuredGames: ['Animals', 'CountAndPack', 'ColorMatch']
+    featuredGames: ['Animals', 'CountAndPack', 'NumberMatch']
   },
   {
     id: 'growing-learner',
@@ -347,7 +347,7 @@ export const childStages = [
     ageLabel: 'About ages 2 to 3',
     description: 'Great for matching, counting, and short challenge games.',
     featuredSkills: ['world-around-me', 'numbers-counting', 'memory-focus'],
-    featuredGames: ['ShapeSortYard', 'FlatOrSolid', 'CountAndPack']
+    featuredGames: ['ShapeSortYard', 'FindWhatChanged', 'NumberMatch']
   },
   {
     id: 'ready-kindergarten',
@@ -355,7 +355,7 @@ export const childStages = [
     ageLabel: 'About ages 4 to 5',
     description: 'Great for letters, patterns, memory, and bigger thinking games.',
     featuredSkills: ['letters-reading', 'thinking-patterns', 'memory-focus', 'numbers-counting'],
-    featuredGames: ['BeginningSounds', 'WordFamilies', 'ComposeAndDecompose', 'StorySequence']
+    featuredGames: ['BeginningSounds', 'CopyPattern', 'BuildAScene', 'ComposeAndDecompose']
   }
 ];
 
@@ -661,6 +661,36 @@ export const gameCatalog = [
     isCoreGame: true
   },
   {
+    id: 'letter-trace',
+    route: 'LetterTrace',
+    title: 'Letter Trace',
+    icon: '\u270D\uFE0F',
+    colors: ['#C4B5FD', '#8B5CF6'],
+    skillArea: 'letters-reading',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Trace big letters with a finger and build early handwriting confidence.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 15,
+    isCoreGame: true
+  },
+  {
+    id: 'upper-lower-match',
+    route: 'UpperLowerMatch',
+    title: 'Upper & Lower Match',
+    icon: 'Aa',
+    colors: ['#93C5FD', '#2563EB'],
+    skillArea: 'letters-reading',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Match uppercase letters to their lowercase pairs.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 25,
+    isCoreGame: true
+  },
+  {
     id: 'counting',
     route: 'Counting',
     title: 'Counting',
@@ -703,6 +733,21 @@ export const gameCatalog = [
     learningGoal: 'Count by tapping one item at a time.',
     difficultyLevel: 'starter',
     recommendedOrder: 20,
+    isCoreGame: true
+  },
+  {
+    id: 'number-match',
+    route: 'NumberMatch',
+    title: 'Number Match',
+    icon: '\u{1F522}',
+    colors: ['#2DD4BF', '#10B981'],
+    skillArea: 'numbers-counting',
+    recommendedStages: ['early-learner', 'growing-learner'],
+    minAgeLabel: '2',
+    maxAgeLabel: '4',
+    learningGoal: 'Count a small group and match it to the right number.',
+    difficultyLevel: 'starter',
+    recommendedOrder: 25,
     isCoreGame: true
   },
   {
@@ -781,6 +826,51 @@ export const gameCatalog = [
     isCoreGame: true
   },
   {
+    id: 'find-what-changed',
+    route: 'FindWhatChanged',
+    title: 'Find What Changed',
+    icon: '\u{1F50D}',
+    colors: ['#BFDBFE', '#60A5FA'],
+    skillArea: 'memory-focus',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Look carefully, then spot the one picture that changed.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 20,
+    isCoreGame: true
+  },
+  {
+    id: 'copy-pattern',
+    route: 'CopyPattern',
+    title: 'Copy the Pattern',
+    icon: '\u{1F3B6}',
+    colors: ['#DDD6FE', '#A78BFA'],
+    skillArea: 'memory-focus',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Watch a short pattern, then tap it back in the same order.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 30,
+    isCoreGame: true
+  },
+  {
+    id: 'hide-and-remember',
+    route: 'HideAndRemember',
+    title: 'Hide & Remember',
+    icon: '\u{1F9F8}',
+    colors: ['#FDE68A', '#FDBA74'],
+    skillArea: 'memory-focus',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '2',
+    maxAgeLabel: '5',
+    learningGoal: 'Remember where a little friend is hiding and tap the right spot.',
+    difficultyLevel: 'starter',
+    recommendedOrder: 40,
+    isCoreGame: true
+  },
+  {
     id: 'odd-one-out',
     route: 'OddOneOut',
     title: 'Odd One Out',
@@ -838,6 +928,21 @@ export const gameCatalog = [
     learningGoal: 'Put little stories in order from first to last.',
     difficultyLevel: 'advanced',
     recommendedOrder: 45,
+    isCoreGame: true
+  },
+  {
+    id: 'build-a-scene',
+    route: 'BuildAScene',
+    title: 'Build a Scene',
+    icon: '\u{1F3DE}\uFE0F',
+    colors: ['#FDE68A', '#F59E0B'],
+    skillArea: 'thinking-patterns',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Choose what belongs next and watch a whole picture come together.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 50,
     isCoreGame: true
   },
   {
@@ -997,14 +1102,22 @@ export const stickerMilestones = [
     emoji: '\u{1F522}',
     name: 'Counter',
     desc: '10 correct counting answers',
-    check: (stats) => ((stats.counting?.correct || 0) + (stats['tap-count']?.correct || 0)) >= 10
+    check: (stats) =>
+      ((stats.counting?.correct || 0) +
+        (stats['tap-count']?.correct || 0) +
+        (stats['count-and-pack']?.correct || 0) +
+        (stats['number-match']?.correct || 0)) >= 10
   },
   {
     id: 'number-hero',
     emoji: '\u{1F9EE}',
     name: 'Number Hero',
     desc: '25 correct counting answers',
-    check: (stats) => ((stats.counting?.correct || 0) + (stats['tap-count']?.correct || 0)) >= 25
+    check: (stats) =>
+      ((stats.counting?.correct || 0) +
+        (stats['tap-count']?.correct || 0) +
+        (stats['count-and-pack']?.correct || 0) +
+        (stats['number-match']?.correct || 0)) >= 25
   },
   {
     id: 'animal-buddy',
@@ -1061,6 +1174,27 @@ export const stickerMilestones = [
     name: 'Memory Pal',
     desc: '5 memory game wins',
     check: (stats) => (stats['memory-game']?.correct || 0) >= 5
+  },
+  {
+    id: 'change-spotter',
+    emoji: '\u{1F50D}',
+    name: 'Change Spotter',
+    desc: '10 find what changed wins',
+    check: (stats) => (stats['find-what-changed']?.correct || 0) >= 10
+  },
+  {
+    id: 'pattern-copycat',
+    emoji: '\u{1F3B6}',
+    name: 'Pattern Copycat',
+    desc: '10 copy pattern wins',
+    check: (stats) => (stats['copy-pattern']?.correct || 0) >= 10
+  },
+  {
+    id: 'hide-seeker',
+    emoji: '\u{1F9F8}',
+    name: 'Hide Seeker',
+    desc: '10 hide and remember wins',
+    check: (stats) => (stats['hide-and-remember']?.correct || 0) >= 10
   },
   {
     id: 'sharp-eyes',
@@ -1133,6 +1267,27 @@ export const stickerMilestones = [
     check: (stats) => (stats['number-trace']?.correct || 0) >= 10
   },
   {
+    id: 'letter-tracer',
+    emoji: '\u270D\uFE0F',
+    name: 'Letter Tracer',
+    desc: '10 traced letters',
+    check: (stats) => (stats['letter-trace']?.correct || 0) >= 10
+  },
+  {
+    id: 'number-matcher',
+    emoji: '\u{1F522}',
+    name: 'Number Matcher',
+    desc: '10 number match wins',
+    check: (stats) => (stats['number-match']?.correct || 0) >= 10
+  },
+  {
+    id: 'letter-pair-pal',
+    emoji: 'Aa',
+    name: 'Letter Pair Pal',
+    desc: '10 upper and lower matches',
+    check: (stats) => (stats['upper-lower-match']?.correct || 0) >= 10
+  },
+  {
     id: 'rhyme-rockstar',
     emoji: '\u{1F3B6}',
     name: 'Rhyme Rockstar',
@@ -1187,5 +1342,12 @@ export const stickerMilestones = [
     name: 'Story Stacker',
     desc: '10 story sequence wins',
     check: (stats) => (stats['story-sequence']?.correct || 0) >= 10
+  },
+  {
+    id: 'scene-stylist',
+    emoji: '\u{1F3DE}\uFE0F',
+    name: 'Scene Stylist',
+    desc: '10 build a scene wins',
+    check: (stats) => (stats['build-a-scene']?.correct || 0) >= 10
   }
 ];

@@ -12,6 +12,9 @@ import { ShapeMatchScreen } from '../components/games/ShapeMatchScreen';
 import { ColorMatchScreen } from '../components/games/ColorMatchScreen';
 import { TapCountScreen } from '../components/games/TapCountScreen';
 import { MemoryGameScreen } from '../components/games/MemoryGameScreen';
+import { FindWhatChangedScreen } from '../components/games/FindWhatChangedScreen';
+import { CopyPatternScreen } from '../components/games/CopyPatternScreen';
+import { HideAndRememberScreen } from '../components/games/HideAndRememberScreen';
 import { OddOneOutScreen } from '../components/games/OddOneOutScreen';
 import { PatternBuilderScreen } from '../components/games/PatternBuilderScreen';
 import { ShadowMatchScreen } from '../components/games/ShadowMatchScreen';
@@ -21,6 +24,7 @@ import { CountAndPackScreen } from '../components/games/CountAndPackScreen';
 import { WhichHasMoreScreen } from '../components/games/WhichHasMoreScreen';
 import { ShapeSortYardScreen } from '../components/games/ShapeSortYardScreen';
 import { NumberTraceScreen } from '../components/games/NumberTraceScreen';
+import { NumberMatchScreen } from '../components/games/NumberMatchScreen';
 import { RhymeTimeScreen } from '../components/games/RhymeTimeScreen';
 import { FlatOrSolidScreen } from '../components/games/FlatOrSolidScreen';
 import { BeginningSoundsScreen } from '../components/games/BeginningSoundsScreen';
@@ -28,6 +32,9 @@ import { MakeTenScreen } from '../components/games/MakeTenScreen';
 import { StorySequenceScreen } from '../components/games/StorySequenceScreen';
 import { SameOrDifferentScreen } from '../components/games/SameOrDifferentScreen';
 import { ComposeAndDecomposeScreen } from '../components/games/ComposeAndDecomposeScreen';
+import { BuildASceneScreen } from '../components/games/BuildASceneScreen';
+import { LetterTraceScreen } from '../components/games/LetterTraceScreen';
+import { UpperLowerMatchScreen } from '../components/games/UpperLowerMatchScreen';
 import { WordFamiliesScreen } from '../components/games/WordFamiliesScreen';
 import { BabyPeekabooScreen } from '../components/games/BabyPeekabooScreen';
 import { BabyPatACakeScreen } from '../components/games/BabyPatACakeScreen';
@@ -87,16 +94,23 @@ export function RootNavigator() {
       <Stack.Screen name="BeginningSounds" component={BeginningSoundsScreen} />
       <Stack.Screen name="WordFamilies" component={WordFamiliesScreen} />
       <Stack.Screen name="TapCount" component={TapCountScreen} />
+      <Stack.Screen name="NumberMatch" component={NumberMatchScreen} />
       <Stack.Screen name="WhichHasMore" component={WhichHasMoreScreen} />
       <Stack.Screen name="NumberTrace" component={NumberTraceScreen} />
+      <Stack.Screen name="LetterTrace" component={LetterTraceScreen} />
+      <Stack.Screen name="UpperLowerMatch" component={UpperLowerMatchScreen} />
       <Stack.Screen name="MakeTen" component={MakeTenScreen} />
       <Stack.Screen name="ComposeAndDecompose" component={ComposeAndDecomposeScreen} />
       <Stack.Screen name="MemoryGame" component={MemoryGameScreen} />
+      <Stack.Screen name="FindWhatChanged" component={FindWhatChangedScreen} />
+      <Stack.Screen name="CopyPattern" component={CopyPatternScreen} />
+      <Stack.Screen name="HideAndRemember" component={HideAndRememberScreen} />
       <Stack.Screen name="OddOneOut" component={OddOneOutScreen} />
       <Stack.Screen name="SameOrDifferent" component={SameOrDifferentScreen} />
       <Stack.Screen name="PatternBuilder" component={PatternBuilderScreen} />
       <Stack.Screen name="StorySequence" component={StorySequenceScreen} />
       <Stack.Screen name="ShadowMatch" component={ShadowMatchScreen} />
+      <Stack.Screen name="BuildAScene" component={BuildASceneScreen} />
       <Stack.Screen name="FollowPath" component={FollowPathScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="StickerBook" component={StickerBookScreen} />

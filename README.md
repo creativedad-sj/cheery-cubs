@@ -30,3 +30,10 @@ Then open it in Expo Go or an emulator.
 - Mobile storage uses AsyncStorage instead of `localStorage`
 - Voice uses `expo-speech`
 - Haptics use `expo-haptics`
+
+## Project Docs
+
+- `docs/phase-1-status.md`
+- `docs/game-catalog.md`
+- `docs/roadmap.md`
+- `docs/handoff.md`
