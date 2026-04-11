@@ -42,12 +42,12 @@ Focus:
 
 Recommended build priority:
 
-1. `Memory & Focus`
-2. `Letters & Reading`
-3. `Numbers & Counting`
-4. `Thinking & Patterns`
-5. `Baby Co-Play`
-6. `World Around Me`
+1. `World Around Me`
+2. `Baby Co-Play`
+3. `Letters & Reading`
+4. `Numbers & Counting`
+5. `Thinking & Patterns`
+6. polish and duplicate reduction across the catalog
 
 Suggested Phase 2 additions:
 
@@ -65,7 +65,8 @@ Suggested Phase 2 additions:
 Current note:
 
 - `Visual Search` is now built
-- the next work should favor polish and catalog curation over raw volume for a short stretch
+- Phase 2 `World Around Me` has started with `Body Parts`, `Food Match`, and `Home Helpers`
+- the next work should still favor distinct mechanics and better coverage over raw volume
 
 ## Phase 3: 60-Game Core Catalog
 Goal: reach a balanced 60-game catalog across 6 top-level categories.

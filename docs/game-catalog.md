@@ -1,7 +1,7 @@
 # Game Catalog
 
 ## Summary
-Current total: `42` games
+Current total: `45` games
 
 This file tracks the live catalog at a product level. It is meant for planning and handoff, not as a source of truth for code.
 
@@ -58,14 +58,17 @@ Count: `5`
 - `Visual Search`
 
 ## World Around Me
-Count: `10`
+Count: `13`
 
 - `Animals`
 - `Shapes`
 - `Shape Sort Yard`
 - `Flat or Solid?`
 - `Colors`
+- `Body Parts`
+- `Food Match`
 - `Emotions`
+- `Home Helpers`
 - `Sports`
 - `Music`
 - `Vehicles`
@@ -89,6 +92,8 @@ Home flow note:
 - `Animals`
 - `Shapes`
 - `Colors`
+- `Body Parts`
+- `Food Match`
 - `Vehicles`
 - `Counting`
 - `Count & Pack`
@@ -101,7 +106,10 @@ Home flow note:
 - `Shape Sort Yard`
 - `Flat or Solid?`
 - `Colors`
+- `Body Parts`
+- `Food Match`
 - `Emotions`
+- `Home Helpers`
 - `Sports`
 - `Music`
 - `Vehicles`
@@ -132,6 +140,7 @@ Home flow note:
 - `Shape Sort Yard`
 - `Flat or Solid?`
 - `Emotions`
+- `Home Helpers`
 - `Sports`
 - `Music`
 - `Landmarks`
@@ -173,6 +182,9 @@ Games that feel strongest and most product-ready right now:
 - `Find What Changed`
 - `Copy the Pattern`
 - `Visual Search`
+- `Body Parts`
+- `Food Match`
+- `Home Helpers`
 
 Games that likely need review for overlap or positioning:
 

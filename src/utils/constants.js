@@ -111,6 +111,39 @@ export const landmarks = [
   { id: 'ferris', name: 'Ferris Wheel', emoji: '\u{1F3A1}' }
 ];
 
+export const bodyParts = [
+  { id: 'eyes', name: 'Eyes', emoji: '\u{1F440}' },
+  { id: 'nose', name: 'Nose', emoji: '\u{1F443}' },
+  { id: 'mouth', name: 'Mouth', emoji: '\u{1FAE6}' },
+  { id: 'ear', name: 'Ear', emoji: '\u{1F442}' },
+  { id: 'hand', name: 'Hand', emoji: '\u270B' },
+  { id: 'foot', name: 'Foot', emoji: '\u{1F9B6}' },
+  { id: 'tooth', name: 'Tooth', emoji: '\u{1F9B7}' },
+  { id: 'tongue', name: 'Tongue', emoji: '\u{1F445}' }
+];
+
+export const foods = [
+  { id: 'apple', name: 'Apple', emoji: '\u{1F34E}' },
+  { id: 'banana', name: 'Banana', emoji: '\u{1F34C}' },
+  { id: 'carrot', name: 'Carrot', emoji: '\u{1F955}' },
+  { id: 'grapes', name: 'Grapes', emoji: '\u{1F347}' },
+  { id: 'bread', name: 'Bread', emoji: '\u{1F35E}' },
+  { id: 'cheese', name: 'Cheese', emoji: '\u{1F9C0}' },
+  { id: 'egg', name: 'Egg', emoji: '\u{1F95A}' },
+  { id: 'strawberry', name: 'Strawberry', emoji: '\u{1F353}' }
+];
+
+export const homeHelpers = [
+  { id: 'bed', name: 'Bed', emoji: '\u{1F6CF}\uFE0F' },
+  { id: 'chair', name: 'Chair', emoji: '\u{1FA91}' },
+  { id: 'lamp', name: 'Lamp', emoji: '\u{1F4A1}' },
+  { id: 'toothbrush', name: 'Toothbrush', emoji: '\u{1FAA5}' },
+  { id: 'soap', name: 'Soap', emoji: '\u{1F9FC}' },
+  { id: 'broom', name: 'Broom', emoji: '\u{1F9F9}' },
+  { id: 'key', name: 'Key', emoji: '\u{1F511}' },
+  { id: 'book', name: 'Book', emoji: '\u{1F4D5}' }
+];
+
 export const countingObjects = [
   { emoji: '\u{1F34E}', name: 'apples' },
   { emoji: '\u{1F34C}', name: 'bananas' },
@@ -347,7 +380,7 @@ export const childStages = [
     ageLabel: 'About ages 2 to 3',
     description: 'Great for matching, counting, and short challenge games.',
     featuredSkills: ['world-around-me', 'numbers-counting', 'memory-focus'],
-    featuredGames: ['ShapeSortYard', 'FindWhatChanged', 'VisualSearch']
+    featuredGames: ['ShapeSortYard', 'BodyParts', 'VisualSearch']
   },
   {
     id: 'ready-kindergarten',
@@ -355,7 +388,7 @@ export const childStages = [
     ageLabel: 'About ages 4 to 5',
     description: 'Great for letters, patterns, memory, and bigger thinking games.',
     featuredSkills: ['letters-reading', 'thinking-patterns', 'memory-focus', 'numbers-counting'],
-    featuredGames: ['BeginningSounds', 'VisualSearch', 'BuildAScene', 'ComposeAndDecompose']
+    featuredGames: ['BeginningSounds', 'VisualSearch', 'FoodMatch', 'ComposeAndDecompose']
   }
 ];
 
@@ -526,6 +559,36 @@ export const gameCatalog = [
     isCoreGame: true
   },
   {
+    id: 'body-parts',
+    route: 'BodyParts',
+    title: 'Body Parts',
+    icon: '\u{1F9D2}',
+    colors: ['#FCA5A5', '#FB7185'],
+    skillArea: 'world-around-me',
+    recommendedStages: ['early-learner', 'growing-learner'],
+    minAgeLabel: '1',
+    maxAgeLabel: '3',
+    learningGoal: 'Name familiar body parts and point to the matching one.',
+    difficultyLevel: 'starter',
+    recommendedOrder: 35,
+    isCoreGame: true
+  },
+  {
+    id: 'food-match',
+    route: 'FoodMatch',
+    title: 'Food Match',
+    icon: '\u{1F957}',
+    colors: ['#FDE68A', '#F59E0B'],
+    skillArea: 'world-around-me',
+    recommendedStages: ['early-learner', 'growing-learner'],
+    minAgeLabel: '1',
+    maxAgeLabel: '4',
+    learningGoal: 'Spot familiar foods and build everyday food words.',
+    difficultyLevel: 'starter',
+    recommendedOrder: 45,
+    isCoreGame: true
+  },
+  {
     id: 'emotion-game',
     route: 'EmotionGame',
     title: 'Emotions',
@@ -538,6 +601,21 @@ export const gameCatalog = [
     learningGoal: 'Identify feelings from expressions.',
     difficultyLevel: 'growing',
     recommendedOrder: 40,
+    isCoreGame: true
+  },
+  {
+    id: 'home-helpers',
+    route: 'HomeHelpers',
+    title: 'Home Helpers',
+    icon: '\u{1F3E0}',
+    colors: ['#A7F3D0', '#34D399'],
+    skillArea: 'world-around-me',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '2',
+    maxAgeLabel: '5',
+    learningGoal: 'Recognize helpful things you use around the house every day.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 55,
     isCoreGame: true
   },
   {
@@ -997,11 +1075,18 @@ export const gameCatalogByRoute = Object.fromEntries(gameCatalog.map((game) => [
 export const skillAreasById = Object.fromEntries(skillAreas.map((skill) => [skill.id, skill]));
 export const childStagesById = Object.fromEntries(childStages.map((stage) => [stage.id, stage]));
 
-export function getGamesForStage(stageId) {
+export function getAllGamesForStage(stageId) {
   return gameCatalog
-    .filter((game) => game.isCoreGame)
     .filter((game) => !stageId || game.recommendedStages.includes(stageId))
     .sort((a, b) => a.recommendedOrder - b.recommendedOrder || a.title.localeCompare(b.title));
+}
+
+export function getGamesForStage(stageId) {
+  return getAllGamesForStage(stageId).filter((game) => game.isCoreGame);
+}
+
+export function getAllGamesForStageAndSkill(stageId, skillArea) {
+  return getAllGamesForStage(stageId).filter((game) => game.skillArea === skillArea);
 }
 
 export function getGamesForStageAndSkill(stageId, skillArea) {
@@ -1157,11 +1242,32 @@ export const stickerMilestones = [
     check: (stats) => (stats['color-match']?.correct || 0) >= 10
   },
   {
+    id: 'body-buddy',
+    emoji: '\u{1F9D2}',
+    name: 'Body Buddy',
+    desc: '10 correct body part answers',
+    check: (stats) => (stats['body-parts']?.correct || 0) >= 10
+  },
+  {
+    id: 'food-friend',
+    emoji: '\u{1F957}',
+    name: 'Food Friend',
+    desc: '10 correct food answers',
+    check: (stats) => (stats['food-match']?.correct || 0) >= 10
+  },
+  {
     id: 'feeling-friend',
     emoji: '\u{1F60A}',
     name: 'Feeling Friend',
     desc: '10 correct emotion answers',
     check: (stats) => (stats['emotion-game']?.correct || 0) >= 10
+  },
+  {
+    id: 'home-helper',
+    emoji: '\u{1F3E0}',
+    name: 'Home Helper',
+    desc: '10 correct home helper answers',
+    check: (stats) => (stats['home-helpers']?.correct || 0) >= 10
   },
   {
     id: 'sports-star',

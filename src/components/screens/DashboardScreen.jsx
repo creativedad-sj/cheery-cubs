@@ -5,7 +5,7 @@ import { Screen } from '../common/Screen';
 import { palette } from '../../theme/palette';
 import { useGameProgress } from '../../contexts/GameProgressContext';
 import { useSettings } from '../../contexts/SettingsContext';
-import { childStagesById, gameCatalog, gameCatalogById, skillAreas } from '../../utils/constants';
+import { childStagesById, gameCatalogById, getGamesForStage, skillAreas } from '../../utils/constants';
 
 function formatPercent(value) {
   return `${Math.round(value)}%`;
@@ -98,13 +98,12 @@ export function DashboardScreen({ navigation }) {
   const needsPractice = [...skillSummaries]
     .filter((item) => item.attempts >= 3)
     .sort((a, b) => a.accuracy - b.accuracy || b.attempts - a.attempts)[0];
-  const recommendedNow = gameCatalog
-    .filter((game) => !childStageId || game.recommendedStages.includes(childStageId))
+  const recommendedNow = getGamesForStage(childStageId)
     .sort((a, b) => {
       const aAttempts = stats[a.id]?.attempts || 0;
       const bAttempts = stats[b.id]?.attempts || 0;
 
-      return aAttempts - bAttempts || Number(b.isCoreGame) - Number(a.isCoreGame) || a.recommendedOrder - b.recommendedOrder;
+      return aAttempts - bAttempts || a.recommendedOrder - b.recommendedOrder;
     })[0];
 
   return (

@@ -43,7 +43,16 @@ import { BabyByeByeScreen } from '../components/games/BabyByeByeScreen';
 import { BabyFindToyScreen } from '../components/games/BabyFindToyScreen';
 import { BabyPutInTakeOutScreen } from '../components/games/BabyPutInTakeOutScreen';
 import { BabyMirrorPlayScreen } from '../components/games/BabyMirrorPlayScreen';
-import { emotions, instruments, landmarks, sportsEquipment, vehicles } from '../utils/constants';
+import {
+  bodyParts,
+  emotions,
+  foods,
+  homeHelpers,
+  instruments,
+  landmarks,
+  sportsEquipment,
+  vehicles
+} from '../utils/constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +76,18 @@ function LandmarksGameScreen(props) {
   return <CategoryGameScreen {...props} title="Landmarks" items={landmarks} gameId="landmarks-game" promptPrefix="Find the" />;
 }
 
+function BodyPartsScreen(props) {
+  return <CategoryGameScreen {...props} title="Body Parts" items={bodyParts} gameId="body-parts" promptPrefix="Point to the" />;
+}
+
+function FoodMatchScreen(props) {
+  return <CategoryGameScreen {...props} title="Food Match" items={foods} gameId="food-match" promptPrefix="Find the" />;
+}
+
+function HomeHelpersScreen(props) {
+  return <CategoryGameScreen {...props} title="Home Helpers" items={homeHelpers} gameId="home-helpers" promptPrefix="Find the" />;
+}
+
 export function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -85,7 +106,10 @@ export function RootNavigator() {
       <Stack.Screen name="ShapeSortYard" component={ShapeSortYardScreen} />
       <Stack.Screen name="FlatOrSolid" component={FlatOrSolidScreen} />
       <Stack.Screen name="ColorMatch" component={ColorMatchScreen} />
+      <Stack.Screen name="BodyParts" component={BodyPartsScreen} />
+      <Stack.Screen name="FoodMatch" component={FoodMatchScreen} />
       <Stack.Screen name="EmotionGame" component={EmotionGameScreen} />
+      <Stack.Screen name="HomeHelpers" component={HomeHelpersScreen} />
       <Stack.Screen name="SportsGame" component={SportsGameScreen} />
       <Stack.Screen name="InstrumentsGame" component={InstrumentsGameScreen} />
       <Stack.Screen name="VehiclesGame" component={VehiclesGameScreen} />

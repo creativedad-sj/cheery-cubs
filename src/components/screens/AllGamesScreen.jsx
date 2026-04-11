@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Screen } from '../common/Screen';
 import { useSettings } from '../../contexts/SettingsContext';
-import { gameCatalog, skillAreas } from '../../utils/constants';
+import { gameCatalog, skillAreas, getAllGamesForStageAndSkill } from '../../utils/constants';
 import { palette } from '../../theme/palette';
 
 function GameCard({ game, recommended, onPress }) {
@@ -43,19 +43,18 @@ export function AllGamesScreen({ navigation }) {
       <LinearGradient colors={['#FFFFFF', '#F8FAFC']} style={styles.heroCard}>
         <Text style={styles.heroTitle}>Browse all games</Text>
         <Text style={styles.heroBody}>
-          Explore every game by learning area. Games that match your selected age range appear first.
+          Explore every game by learning area. Core recommendations appear first, and extra activities stay available below.
         </Text>
       </LinearGradient>
 
       {skillAreas.map((skill) => {
-        const games = gameCatalog
-          .filter((game) => game.skillArea === skill.id)
-          .sort((a, b) => {
-            const aRecommended = childStageId && a.recommendedStages.includes(childStageId) ? 0 : 1;
-            const bRecommended = childStageId && b.recommendedStages.includes(childStageId) ? 0 : 1;
-
-            return aRecommended - bRecommended || a.recommendedOrder - b.recommendedOrder || a.title.localeCompare(b.title);
-          });
+        const games = childStageId
+          ? getAllGamesForStageAndSkill(childStageId, skill.id)
+          : gameCatalog
+              .filter((game) => game.skillArea === skill.id)
+              .sort((a, b) => a.recommendedOrder - b.recommendedOrder || a.title.localeCompare(b.title));
+        const coreGames = games.filter((game) => game.isCoreGame);
+        const extraGames = games.filter((game) => !game.isCoreGame);
 
         return (
           <View key={skill.id} style={styles.section}>
@@ -64,16 +63,43 @@ export function AllGamesScreen({ navigation }) {
               <Text style={styles.sectionBody}>{skill.description}</Text>
             </LinearGradient>
 
-            <View style={styles.grid}>
-              {games.map((game) => (
-                <GameCard
-                  key={game.route}
-                  game={game}
-                  recommended={Boolean(childStageId && game.recommendedStages.includes(childStageId))}
-                  onPress={() => navigation.navigate(game.route)}
-                />
-              ))}
-            </View>
+            {coreGames.length > 0 ? (
+              <>
+                <View style={styles.groupHeader}>
+                  <Text style={styles.groupTitle}>Core games</Text>
+                  <Text style={styles.groupHint}>Best first picks</Text>
+                </View>
+                <View style={styles.grid}>
+                  {coreGames.map((game) => (
+                    <GameCard
+                      key={game.route}
+                      game={game}
+                      recommended={Boolean(childStageId && game.recommendedStages.includes(childStageId))}
+                      onPress={() => navigation.navigate(game.route)}
+                    />
+                  ))}
+                </View>
+              </>
+            ) : null}
+
+            {extraGames.length > 0 ? (
+              <>
+                <View style={styles.groupHeader}>
+                  <Text style={styles.groupTitle}>More to explore</Text>
+                  <Text style={styles.groupHint}>Extra activities</Text>
+                </View>
+                <View style={styles.grid}>
+                  {extraGames.map((game) => (
+                    <GameCard
+                      key={game.route}
+                      game={game}
+                      recommended={Boolean(childStageId && game.recommendedStages.includes(childStageId))}
+                      onPress={() => navigation.navigate(game.route)}
+                    />
+                  ))}
+                </View>
+              </>
+            ) : null}
           </View>
         );
       })}
@@ -128,6 +154,24 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     padding: 16,
     marginBottom: 12
+  },
+  groupHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+    marginTop: 4
+  },
+  groupTitle: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: palette.textPrimary
+  },
+  groupHint: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: palette.textSecondary,
+    textTransform: 'uppercase'
   },
   sectionTitle: {
     fontSize: 20,

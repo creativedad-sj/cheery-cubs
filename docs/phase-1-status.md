@@ -30,7 +30,9 @@ Phase 1 does not include:
 - deep curriculum reporting
 
 ## Current Status
-Current game count: `42`
+Current game count: `45`
+Phase 1 implementation status: `complete, pending full-device QA`
+Phase 2 status: `started with the first World Around Me wave`
 
 Latest deployed milestone: `April 10, 2026`
 
@@ -49,7 +51,7 @@ Current top-level category counts:
 - `Numbers & Counting`: 8
 - `Thinking & Patterns`: 7
 - `Memory & Focus`: 5
-- `World Around Me`: 10
+- `World Around Me`: 13
 
 Current stage structure:
 
@@ -70,10 +72,18 @@ Current stage structure:
 
 These were added to strengthen the launch catalog in letters, numbers, and thinking games.
 
+## First Phase 2 Additions
+- `Body Parts`
+- `Food Match`
+- `Home Helpers`
+
+These are the first `World Around Me` expansion games for Phase 2.
+
 ## What Is Already In Good Shape
 - parent-first home structure
 - curated core recommendations on the home flow
 - browse-all-games flow
+- curated browse sections for core games vs extra activities
 - stage and skill metadata in the catalog
 - baby co-play section
 - sticker milestone system
@@ -95,7 +105,7 @@ Treat Phase 1 as complete when these are true:
 - the app can be demoed without obvious rough edges
 
 ## Immediate Next Priorities
-1. Do a targeted device polish pass on the launch-core games
-2. Trim or merge duplicate-feeling games even further
-3. Keep `Browse all games` broad, but keep the home flow curated
-4. Expand the weakest remaining parent-trust areas before aggressively adding volume
+1. Test the new `World Around Me` wave on device
+2. Decide whether `World Around Me` should keep expanding next or pause for polish
+3. Finalize which duplicate-feeling games stay visible as extras and which should merge later
+4. Keep Phase 2 growth focused on distinct mechanics, not filler volume
