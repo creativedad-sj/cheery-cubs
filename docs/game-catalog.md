@@ -1,7 +1,7 @@
 # Game Catalog
 
 ## Summary
-Current total: `41` games
+Current total: `42` games
 
 This file tracks the live catalog at a product level. It is meant for planning and handoff, not as a source of truth for code.
 
@@ -49,12 +49,13 @@ Count: `7`
 - `Trail Adventure`
 
 ## Memory & Focus
-Count: `4`
+Count: `5`
 
 - `Memory`
 - `Find What Changed`
 - `Copy the Pattern`
 - `Hide & Remember`
+- `Visual Search`
 
 ## World Around Me
 Count: `10`
@@ -71,6 +72,11 @@ Count: `10`
 - `Landmarks`
 
 ## Stage Recommendations
+Home flow note:
+
+- the parent-facing home now prioritizes `core games`
+- `Browse all games` still includes the broader catalog, including non-core extras
+
 ### Baby Co-Play
 - `Peekaboo`
 - `Pat-a-Cake`
@@ -115,6 +121,7 @@ Count: `10`
 - `Find What Changed`
 - `Copy the Pattern`
 - `Hide & Remember`
+- `Visual Search`
 - `Odd One Out`
 - `Same or Different?`
 - `Pattern Train`
@@ -142,6 +149,7 @@ Count: `10`
 - `Find What Changed`
 - `Copy the Pattern`
 - `Hide & Remember`
+- `Visual Search`
 - `Odd One Out`
 - `Same or Different?`
 - `Pattern Train`
@@ -164,6 +172,7 @@ Games that feel strongest and most product-ready right now:
 - `Letter Trace`
 - `Find What Changed`
 - `Copy the Pattern`
+- `Visual Search`
 
 Games that likely need review for overlap or positioning:
 

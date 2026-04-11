@@ -347,7 +347,7 @@ export const childStages = [
     ageLabel: 'About ages 2 to 3',
     description: 'Great for matching, counting, and short challenge games.',
     featuredSkills: ['world-around-me', 'numbers-counting', 'memory-focus'],
-    featuredGames: ['ShapeSortYard', 'FindWhatChanged', 'NumberMatch']
+    featuredGames: ['ShapeSortYard', 'FindWhatChanged', 'VisualSearch']
   },
   {
     id: 'ready-kindergarten',
@@ -355,7 +355,7 @@ export const childStages = [
     ageLabel: 'About ages 4 to 5',
     description: 'Great for letters, patterns, memory, and bigger thinking games.',
     featuredSkills: ['letters-reading', 'thinking-patterns', 'memory-focus', 'numbers-counting'],
-    featuredGames: ['BeginningSounds', 'CopyPattern', 'BuildAScene', 'ComposeAndDecompose']
+    featuredGames: ['BeginningSounds', 'VisualSearch', 'BuildAScene', 'ComposeAndDecompose']
   }
 ];
 
@@ -628,7 +628,7 @@ export const gameCatalog = [
     learningGoal: 'Listen for words that sound alike and build early rhyming skills.',
     difficultyLevel: 'growing',
     recommendedOrder: 20,
-    isCoreGame: true
+    isCoreGame: false
   },
   {
     id: 'word-families',
@@ -703,7 +703,7 @@ export const gameCatalog = [
     learningGoal: 'Count objects and connect sets to totals.',
     difficultyLevel: 'starter',
     recommendedOrder: 10,
-    isCoreGame: true
+    isCoreGame: false
   },
   {
     id: 'count-and-pack',
@@ -793,7 +793,7 @@ export const gameCatalog = [
     learningGoal: 'Build number pairs that make 10.',
     difficultyLevel: 'advanced',
     recommendedOrder: 50,
-    isCoreGame: true
+    isCoreGame: false
   },
   {
     id: 'compose-decompose',
@@ -868,6 +868,21 @@ export const gameCatalog = [
     learningGoal: 'Remember where a little friend is hiding and tap the right spot.',
     difficultyLevel: 'starter',
     recommendedOrder: 40,
+    isCoreGame: true
+  },
+  {
+    id: 'visual-search',
+    route: 'VisualSearch',
+    title: 'Visual Search',
+    icon: '\u{1F50E}',
+    colors: ['#C7D2FE', '#60A5FA'],
+    skillArea: 'memory-focus',
+    recommendedStages: ['growing-learner', 'ready-kindergarten'],
+    minAgeLabel: '3',
+    maxAgeLabel: '5',
+    learningGoal: 'Look across a busy picture wall and find the matching target.',
+    difficultyLevel: 'growing',
+    recommendedOrder: 50,
     isCoreGame: true
   },
   {
@@ -984,6 +999,7 @@ export const childStagesById = Object.fromEntries(childStages.map((stage) => [st
 
 export function getGamesForStage(stageId) {
   return gameCatalog
+    .filter((game) => game.isCoreGame)
     .filter((game) => !stageId || game.recommendedStages.includes(stageId))
     .sort((a, b) => a.recommendedOrder - b.recommendedOrder || a.title.localeCompare(b.title));
 }
@@ -1195,6 +1211,13 @@ export const stickerMilestones = [
     name: 'Hide Seeker',
     desc: '10 hide and remember wins',
     check: (stats) => (stats['hide-and-remember']?.correct || 0) >= 10
+  },
+  {
+    id: 'search-star',
+    emoji: '\u{1F50E}',
+    name: 'Search Star',
+    desc: '10 visual search wins',
+    check: (stats) => (stats['visual-search']?.correct || 0) >= 10
   },
   {
     id: 'sharp-eyes',

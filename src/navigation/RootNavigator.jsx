@@ -15,6 +15,7 @@ import { MemoryGameScreen } from '../components/games/MemoryGameScreen';
 import { FindWhatChangedScreen } from '../components/games/FindWhatChangedScreen';
 import { CopyPatternScreen } from '../components/games/CopyPatternScreen';
 import { HideAndRememberScreen } from '../components/games/HideAndRememberScreen';
+import { VisualSearchScreen } from '../components/games/VisualSearchScreen';
 import { OddOneOutScreen } from '../components/games/OddOneOutScreen';
 import { PatternBuilderScreen } from '../components/games/PatternBuilderScreen';
 import { ShadowMatchScreen } from '../components/games/ShadowMatchScreen';
@@ -105,6 +106,7 @@ export function RootNavigator() {
       <Stack.Screen name="FindWhatChanged" component={FindWhatChangedScreen} />
       <Stack.Screen name="CopyPattern" component={CopyPatternScreen} />
       <Stack.Screen name="HideAndRemember" component={HideAndRememberScreen} />
+      <Stack.Screen name="VisualSearch" component={VisualSearchScreen} />
       <Stack.Screen name="OddOneOut" component={OddOneOutScreen} />
       <Stack.Screen name="SameOrDifferent" component={SameOrDifferentScreen} />
       <Stack.Screen name="PatternBuilder" component={PatternBuilderScreen} />

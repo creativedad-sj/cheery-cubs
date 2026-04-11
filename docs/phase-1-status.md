@@ -30,7 +30,17 @@ Phase 1 does not include:
 - deep curriculum reporting
 
 ## Current Status
-Current game count: `41`
+Current game count: `42`
+
+Latest deployed milestone: `April 10, 2026`
+
+Latest deployed batch included:
+
+- parent-first app structure
+- documentation set
+- Phase 1 letters and numbers wave
+- Phase 1 memory wave
+- parent-flow curation improvements
 
 Current top-level category counts:
 
@@ -38,7 +48,7 @@ Current top-level category counts:
 - `Letters & Reading`: 6
 - `Numbers & Counting`: 8
 - `Thinking & Patterns`: 7
-- `Memory & Focus`: 4
+- `Memory & Focus`: 5
 - `World Around Me`: 10
 
 Current stage structure:
@@ -56,11 +66,13 @@ Current stage structure:
 - `Find What Changed`
 - `Copy the Pattern`
 - `Hide & Remember`
+- `Visual Search`
 
 These were added to strengthen the launch catalog in letters, numbers, and thinking games.
 
 ## What Is Already In Good Shape
 - parent-first home structure
+- curated core recommendations on the home flow
 - browse-all-games flow
 - stage and skill metadata in the catalog
 - baby co-play section
@@ -83,7 +95,7 @@ Treat Phase 1 as complete when these are true:
 - the app can be demoed without obvious rough edges
 
 ## Immediate Next Priorities
-1. Strengthen `Memory & Focus`
-2. Do a targeted polish pass on the launch-core games
-3. Trim or merge duplicate-feeling games
-4. Keep building toward the broader 60-game roadmap after the launch foundation feels solid
+1. Do a targeted device polish pass on the launch-core games
+2. Trim or merge duplicate-feeling games even further
+3. Keep `Browse all games` broad, but keep the home flow curated
+4. Expand the weakest remaining parent-trust areas before aggressively adding volume

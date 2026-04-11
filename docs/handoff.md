@@ -4,10 +4,12 @@
 Cheery Cubs now has:
 
 - a parent-first home flow
+- a curated core recommendation layer on the home screen
 - stage-based recommendations
 - skill-area browsing
 - a baby co-play section
-- `41` total games
+- `42` total games
+- latest batch deployed to GitHub Pages on `April 10, 2026`
 
 Recent Phase 1 additions:
 
@@ -18,6 +20,7 @@ Recent Phase 1 additions:
 - `Find What Changed`
 - `Copy the Pattern`
 - `Hide & Remember`
+- `Visual Search`
 
 ## Most Important Product Decisions So Far
 - The app is no longer being treated like a hobby project.
@@ -74,12 +77,13 @@ npm run deploy
 - some games still overlap in learning mechanic
 - several newer games still need real child playtesting and polish
 - the catalog is larger, but not yet curated tightly enough for launch
+- docs should keep tracking deployed milestones after each major batch
 
 ## Best Next Moves
 1. Polish the newest memory wave on device
 2. Review duplicates and merge or hide weak overlaps
-3. Polish the strongest 15 to 20 games before aggressively expanding
-4. Keep `docs/game-catalog.md` and `docs/phase-1-status.md` updated after major batches
+3. Then choose between a baby co-play expansion or a world-around-me expansion
+4. Keep the home flow curated and let `Browse all games` hold the extras
 
 ## If A New Chat Starts
 Share these files first:

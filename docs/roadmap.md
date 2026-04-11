@@ -36,7 +36,7 @@ Goal: make each top-level category feel credible and balanced.
 Focus:
 
 - fill the weakest categories first
-- especially `Memory & Focus`
+- especially the next distinct gaps after the new memory wave
 - reduce duplicate-feeling games
 - improve quality on the most played games
 
@@ -51,9 +51,6 @@ Recommended build priority:
 
 Suggested Phase 2 additions:
 
-- `Find What Changed`
-- `Copy the Pattern`
-- `Hide and Remember`
 - `Visual Search`
 - `Animal Sounds`
 - `Touch the Light`
@@ -61,6 +58,14 @@ Suggested Phase 2 additions:
 - `Body Parts`
 - `Food Match`
 - `Home Helpers`
+- `Before and After`
+- `Upper and Lower Match` polish pass
+- `Follow Path` polish/expansion
+
+Current note:
+
+- `Visual Search` is now built
+- the next work should favor polish and catalog curation over raw volume for a short stretch
 
 ## Phase 3: 60-Game Core Catalog
 Goal: reach a balanced 60-game catalog across 6 top-level categories.

@@ -83,9 +83,9 @@ export function HomeScreen({ navigation }) {
       <View style={styles.header}>
         <Text style={styles.headerEyebrow}>Cheery Cubs</Text>
         <View style={styles.headerActions}>
-          <HeaderButton label={'🏆'} onPress={() => navigation.navigate('StickerBook')} />
-          <HeaderButton label={'📊'} onPress={() => navigation.navigate('Dashboard')} />
-          <HeaderButton label={'⚙️'} onPress={() => navigation.navigate('Settings')} />
+          <HeaderButton label={'\u{1F3C6}'} onPress={() => navigation.navigate('StickerBook')} />
+          <HeaderButton label={'\u{1F4CA}'} onPress={() => navigation.navigate('Dashboard')} />
+          <HeaderButton label={'\u2699\uFE0F'} onPress={() => navigation.navigate('Settings')} />
         </View>
       </View>
 
@@ -95,7 +95,7 @@ export function HomeScreen({ navigation }) {
         </View>
         <Text style={styles.brand}>Find the right game for your child in just a few taps.</Text>
         <Text style={styles.subheading}>
-          Choose an age range, pick a learning area, and start with games that match your child&apos;s stage.
+          Choose an age range, pick a learning area, and start with the core games that best fit your child&apos;s stage.
         </Text>
         <Pressable onPress={() => navigation.navigate('AllGames')} style={styles.browseButton}>
           <Text style={styles.browseButtonText}>Browse all games</Text>
@@ -123,7 +123,7 @@ export function HomeScreen({ navigation }) {
             <View style={styles.sectionTitleRow}>
               <View>
                 <Text style={styles.sectionLabel}>Recommended to start</Text>
-                <Text style={styles.sectionHint}>A few good picks for {selectedStage.title.toLowerCase()}.</Text>
+                <Text style={styles.sectionHint}>A few strong core picks for {selectedStage.title.toLowerCase()}.</Text>
               </View>
               <View style={styles.stageSummaryPill}>
                 <Text style={styles.stageSummaryText}>{selectedStage.ageLabel}</Text>
@@ -143,7 +143,7 @@ export function HomeScreen({ navigation }) {
 
           <View style={styles.section}>
             <Text style={styles.sectionLabel}>Choose a learning area</Text>
-            <Text style={styles.sectionHint}>Pick what you&apos;d like your child to practice today.</Text>
+            <Text style={styles.sectionHint}>Pick what you&apos;d like your child to practice today. These are the core games we recommend first.</Text>
             <View style={styles.skillChipRow}>
               {selectedStage.featuredSkills.map((skillId) => {
                 const skill = skillAreasById[skillId];
@@ -173,6 +173,7 @@ export function HomeScreen({ navigation }) {
           {activeGames.length > 0 ? (
             <View style={styles.section}>
               <Text style={styles.sectionLabel}>Games in this learning area</Text>
+              <Text style={styles.sectionHint}>Browse all games if you want extra activities beyond these core picks.</Text>
               <View style={styles.grid}>
                 {activeGames.map((game) => (
                   <GameCard key={game.route} game={game} onPress={() => navigation.navigate(game.route)} />
