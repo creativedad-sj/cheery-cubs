@@ -33,10 +33,9 @@ Then open it in Expo Go or an emulator.
 
 ## Project Docs
 
-- `docs/phase-1-status.md`
-- `docs/game-catalog.md`
-- `docs/core-catalog-tracker.md`
+- `docs/implementation-overview.md`
+- `docs/solution-architecture.md`
 - `docs/core-catalog-plan.md`
+- `docs/implementation-roadmap.md`
+- `docs/operations-runbook.md`
 - `docs/product-review.md`
-- `docs/roadmap.md`
-- `docs/handoff.md`
