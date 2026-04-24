@@ -8,9 +8,14 @@ import { Screen } from '../common/Screen';
 import { useVisualSearch } from '../../hooks/gameLogic/useVisualSearch';
 import { palette } from '../../theme/palette';
 
-function SearchTile({ item, compact, onPress }) {
+function SearchTile({ item, compact, columns, onPress }) {
+  const tileWidth = columns >= 4 ? '22%' : '30%';
+
   return (
-    <Pressable onPress={onPress} style={({ pressed }) => [styles.tileWrap, compact && styles.tileWrapCompact, pressed && styles.pressed]}>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [styles.tileWrap, { width: tileWidth }, compact && styles.tileWrapCompact, pressed && styles.pressed]}
+    >
       <LinearGradient colors={['#FFFFFF', '#EFF6FF']} style={styles.tileCard}>
         <Text style={[styles.tileEmoji, compact && styles.tileEmojiCompact]}>{item.emoji}</Text>
         <Text style={styles.tileLabel}>{item.name}</Text>
@@ -58,7 +63,7 @@ export function VisualSearchScreen({ navigation }) {
 
         <View style={[styles.grid, compact && styles.gridCompact]}>
           {round.cells.map((item, index) => (
-            <SearchTile key={`${item.id}-${index}`} item={item} compact={compact} onPress={() => handleChoice(item)} />
+            <SearchTile key={`${item.id}-${index}`} item={item} compact={compact} columns={round.columns} onPress={() => handleChoice(item)} />
           ))}
         </View>
       </LinearGradient>
@@ -164,10 +169,10 @@ const styles = StyleSheet.create({
     gap: 8
   },
   tileWrap: {
-    width: '30%'
+    minWidth: 72
   },
   tileWrapCompact: {
-    width: '22%'
+    minWidth: 72
   },
   tileCard: {
     minHeight: 96,

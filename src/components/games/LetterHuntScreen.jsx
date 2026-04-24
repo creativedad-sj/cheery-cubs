@@ -31,10 +31,7 @@ function LetterBubble({ item, index, onPress, highlighted, compact }) {
       ]}
       disabled={item.collected}
     >
-      <LinearGradient
-        colors={colors}
-        style={styles.bubbleFill}
-      >
+      <LinearGradient colors={colors} style={styles.bubbleFill}>
         <Text style={[styles.bubbleLetter, compact && styles.bubbleLetterCompact, item.collected && styles.bubbleLetterCollected]}>
           {item.letter}
         </Text>
@@ -46,7 +43,8 @@ function LetterBubble({ item, index, onPress, highlighted, compact }) {
 export function LetterHuntScreen({ navigation }) {
   const { targetLetter, targetVariants, mixCase, targetCount, collectedCount, options, score, feedback, shakeId, showConfetti, handleOptionPress, speak } = useLetterHunt();
   const { height } = useWindowDimensions();
-  const compact = options.length >= 8 || height < 760;
+  const compact = options.length >= 9 || height < 760;
+  const extraCompact = options.length >= 12;
 
   return (
     <Screen>
@@ -71,7 +69,7 @@ export function LetterHuntScreen({ navigation }) {
 
         <Pressable onPress={() => speak(`Find all ${targetLetter}s`, 'question')} style={styles.soundButton}>
           <LinearGradient colors={[palette.secondary, '#38BDF8']} style={styles.soundFill}>
-            <Text style={styles.soundEmoji}>🔊</Text>
+            <Text style={styles.soundEmoji}>{'\u{1F50A}'}</Text>
           </LinearGradient>
         </Pressable>
       </View>
@@ -82,15 +80,15 @@ export function LetterHuntScreen({ navigation }) {
             <Text style={styles.targetLabel}>Target</Text>
             <View style={styles.targetVariantsRow}>
               {targetVariants.map((variant) => (
-                <View key={variant} style={styles.targetBubble}>
-                  <Text style={styles.targetLetter}>{variant}</Text>
+                <View key={variant} style={[styles.targetBubble, extraCompact && styles.targetBubbleCompact]}>
+                  <Text style={[styles.targetLetter, extraCompact && styles.targetLetterCompact]}>{variant}</Text>
                 </View>
               ))}
             </View>
           </View>
 
           <View style={styles.basketCard}>
-            <Text style={styles.basketEmoji}>🧺</Text>
+            <Text style={styles.basketEmoji}>{'\u{1F9FA}'}</Text>
             <Text style={styles.basketCount}>
               {collectedCount}/{targetCount}
             </Text>
@@ -104,15 +102,11 @@ export function LetterHuntScreen({ navigation }) {
               key={item.id}
               item={item}
               index={index}
-              compact={compact}
+              compact={compact || extraCompact}
               highlighted={shakeId === item.id}
               onPress={() => handleOptionPress(item)}
             />
           ))}
-        </View>
-
-        <View style={styles.footerHint}>
-          <Text style={styles.footerHintText}>Some sneaky letters look similar. Collect every {targetLetter} before the round ends.</Text>
         </View>
       </LinearGradient>
     </Screen>
@@ -216,10 +210,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  targetBubbleCompact: {
+    width: 62,
+    height: 62,
+    borderRadius: 22
+  },
   targetLetter: {
     fontSize: 38,
     fontWeight: '900',
     color: '#1D4ED8'
+  },
+  targetLetterCompact: {
+    fontSize: 32
   },
   basketCard: {
     width: 120,
@@ -267,7 +269,7 @@ const styles = StyleSheet.create({
     elevation: 2
   },
   bubbleCompact: {
-    width: '28%'
+    width: '22%'
   },
   bubbleFill: {
     flex: 1,
@@ -280,7 +282,7 @@ const styles = StyleSheet.create({
     color: '#1E293B'
   },
   bubbleLetterCompact: {
-    fontSize: 34
+    fontSize: 30
   },
   bubbleCollected: {
     opacity: 0.92
@@ -295,18 +297,4 @@ const styles = StyleSheet.create({
   bubblePressed: {
     transform: [{ scale: 0.96 }]
   },
-  footerHint: {
-    marginTop: 12,
-    backgroundColor: 'rgba(255,255,255,0.84)',
-    borderRadius: 22,
-    paddingHorizontal: 14,
-    paddingVertical: 10
-  },
-  footerHintText: {
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: '700',
-    color: palette.textSecondary,
-    textAlign: 'center'
-  }
 });

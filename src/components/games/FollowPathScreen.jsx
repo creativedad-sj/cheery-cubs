@@ -266,7 +266,7 @@ export function FollowPathScreen({ navigation }) {
 
         <Pressable onPress={() => speak(`Slide ${theme.traveler} to ${theme.goal}`, 'question')} style={styles.soundButton}>
           <LinearGradient colors={[palette.secondary, '#38BDF8']} style={styles.soundFill}>
-            <Text style={styles.soundEmoji}>🔊</Text>
+            <Text style={styles.soundEmoji}>{'\u{1F50A}'}</Text>
           </LinearGradient>
         </Pressable>
       </View>

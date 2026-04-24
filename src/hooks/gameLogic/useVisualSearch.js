@@ -46,6 +46,7 @@ export function useVisualSearch() {
   const [feedback, setFeedback] = useState({ show: false, type: '', message: '' });
   const [showConfetti, setShowConfetti] = useState(false);
   const timeoutRef = useRef(null);
+  const previousTargetIdRef = useRef('');
   const difficulty = getDifficulty('visual-search');
 
   const clearTimer = useCallback(() => {
@@ -59,7 +60,15 @@ export function useVisualSearch() {
 
   const nextRound = useCallback(() => {
     clearTimer();
-    const next = buildRound(difficulty);
+    let next = buildRound(difficulty);
+    let attempts = 0;
+
+    while (attempts < 6 && next.target.id === previousTargetIdRef.current) {
+      next = buildRound(difficulty);
+      attempts += 1;
+    }
+
+    previousTargetIdRef.current = next.target.id;
     setRound(next);
     setFeedback({ show: false, type: '', message: '' });
     setShowConfetti(false);

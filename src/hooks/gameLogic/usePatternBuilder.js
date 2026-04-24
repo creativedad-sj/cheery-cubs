@@ -52,6 +52,7 @@ export function usePatternBuilder() {
   const [shakeId, setShakeId] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const timeoutRef = useRef(null);
+  const previousRoundRef = useRef({ recipeId: '', themeId: '' });
 
   const difficulty = getDifficulty('pattern-builder');
   const speakRef = useRef(speak);
@@ -78,10 +79,20 @@ export function usePatternBuilder() {
     clearRoundTimer();
 
     const availableRecipes = patternRecipes[difficulty] || patternRecipes[1];
-    const recipe = availableRecipes[Math.floor(Math.random() * availableRecipes.length)];
-    const theme = patternThemes[Math.floor(Math.random() * patternThemes.length)];
+    const recipeChoices =
+      availableRecipes.length > 1
+        ? availableRecipes.filter((entry) => entry.id !== previousRoundRef.current.recipeId)
+        : availableRecipes;
+    const themeChoices =
+      patternThemes.length > 1
+        ? patternThemes.filter((entry) => entry.id !== previousRoundRef.current.themeId)
+        : patternThemes;
+    const recipe = recipeChoices[Math.floor(Math.random() * recipeChoices.length)];
+    const theme = themeChoices[Math.floor(Math.random() * themeChoices.length)];
     const nextSlots = buildSlots(theme, recipe);
     const nextRuleItems = recipe.rule.map((itemIndex) => theme.items[itemIndex]);
+
+    previousRoundRef.current = { recipeId: recipe.id, themeId: theme.id };
 
     setThemeName(theme.name);
     setTitle(recipe.title);

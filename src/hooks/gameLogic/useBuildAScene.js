@@ -59,6 +59,7 @@ export function useBuildAScene() {
   const [feedback, setFeedback] = useState({ show: false, type: '', message: '' });
   const [showConfetti, setShowConfetti] = useState(false);
   const timeoutRef = useRef(null);
+  const previousSceneIdRef = useRef('');
 
   const clearTimer = useCallback(() => {
     if (timeoutRef.current) {
@@ -71,7 +72,12 @@ export function useBuildAScene() {
 
   const nextRound = useCallback(() => {
     clearTimer();
-    const nextScene = scenes[Math.floor(Math.random() * scenes.length)];
+    const sceneChoices =
+      scenes.length > 1
+        ? scenes.filter((entry) => entry.id !== previousSceneIdRef.current)
+        : scenes;
+    const nextScene = sceneChoices[Math.floor(Math.random() * sceneChoices.length)];
+    previousSceneIdRef.current = nextScene.id;
     setScene(nextScene);
     setTray(shuffle([...nextScene.items]));
     setPlaced({});

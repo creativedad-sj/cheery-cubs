@@ -29,7 +29,7 @@ export function BabyGameShell({
 
         <Pressable onPress={onSpeak} style={styles.soundButton}>
           <LinearGradient colors={[palette.secondary, '#38BDF8']} style={styles.soundFill}>
-            <Text style={styles.soundEmoji}>🔊</Text>
+            <Text style={styles.soundEmoji}>{'\u{1F50A}'}</Text>
           </LinearGradient>
         </Pressable>
       </View>

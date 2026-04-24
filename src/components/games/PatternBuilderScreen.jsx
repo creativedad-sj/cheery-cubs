@@ -31,7 +31,6 @@ function PatternPiece({ item, compact, selected, hidden, highlighted, onPress })
 
 export function PatternBuilderScreen({ navigation }) {
   const {
-    themeName,
     title,
     hint,
     ruleItems,
@@ -69,23 +68,18 @@ export function PatternBuilderScreen({ navigation }) {
 
       <View style={styles.promptRow}>
         <LinearGradient colors={['#FFFFFF', '#FFF7ED']} style={styles.promptCard}>
-          <Text style={styles.promptEyebrow}>{themeName} set</Text>
           <Text style={styles.promptTitle}>{title}</Text>
-          <Text style={styles.promptBody}>{hint}</Text>
+          <Text style={styles.promptBody}>{`${hint} Use the builder tray to fill the empty spot.`}</Text>
         </LinearGradient>
 
         <Pressable onPress={() => speak(`${title}. ${hint}`, 'question')} style={styles.soundButton}>
           <LinearGradient colors={[palette.secondary, '#38BDF8']} style={styles.soundFill}>
-            <Text style={styles.soundEmoji}>🔊</Text>
+            <Text style={styles.soundEmoji}>{'\u{1F50A}'}</Text>
           </LinearGradient>
         </Pressable>
       </View>
 
       <LinearGradient colors={['#FFF7ED', '#FFEDD5']} style={styles.stageCard}>
-        <View style={styles.stageBanner}>
-          <Text style={styles.stageBannerText}>Look at the little group first. That same group keeps repeating.</Text>
-        </View>
-
         <View style={styles.ruleCard}>
           <Text style={styles.ruleTitle}>Repeat this part</Text>
           <View style={[styles.ruleRow, compact && styles.ruleRowCompact]}>
@@ -148,39 +142,31 @@ const styles = StyleSheet.create({
   promptRow: {
     flexDirection: 'row',
     alignItems: 'stretch',
-    gap: 10,
-    marginBottom: 12
+      gap: 10,
+      marginBottom: 12
   },
   promptCard: {
     flex: 1,
     borderRadius: 28,
-    paddingHorizontal: 18,
-    paddingVertical: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 14,
     shadowColor: palette.shadow,
     shadowOpacity: 1,
     shadowRadius: 14,
     shadowOffset: { width: 0, height: 8 },
     elevation: 3
   },
-  promptEyebrow: {
-    fontSize: 12,
-    fontWeight: '800',
-    color: palette.textSecondary,
-    textTransform: 'uppercase',
-    letterSpacing: 0.7,
-    marginBottom: 6
-  },
   promptTitle: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: '900',
-    color: palette.textPrimary,
-    marginBottom: 4
+    color: palette.textPrimary
   },
   promptBody: {
     fontSize: 14,
-    lineHeight: 20,
+    lineHeight: 18,
     fontWeight: '700',
-    color: palette.textSecondary
+    color: palette.textSecondary,
+    marginTop: 4
   },
   soundButton: {
     width: 64,
@@ -203,41 +189,27 @@ const styles = StyleSheet.create({
   stageCard: {
     flex: 1,
     borderRadius: 32,
-    padding: 14,
+    padding: 12,
     shadowColor: palette.shadow,
     shadowOpacity: 1,
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 8 },
     elevation: 3
   },
-  stageBanner: {
-    backgroundColor: 'rgba(255,255,255,0.84)',
-    borderRadius: 22,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    marginBottom: 12
-  },
-  stageBannerText: {
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: '700',
-    color: palette.textSecondary,
-    textAlign: 'center'
-  },
   ruleCard: {
     backgroundColor: 'rgba(255,255,255,0.84)',
     borderRadius: 24,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    marginBottom: 12
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    marginBottom: 10
   },
   ruleTitle: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '800',
     color: palette.textSecondary,
     textAlign: 'center',
     textTransform: 'uppercase',
-    marginBottom: 8
+    marginBottom: 6
   },
   ruleRow: {
     flexDirection: 'row',
@@ -251,70 +223,70 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 10,
-    marginBottom: 14
+    gap: 8,
+    marginBottom: 10
   },
   patternGroupsRowCompact: {
-    gap: 8
+    gap: 6
   },
   patternGroup: {
     backgroundColor: 'rgba(255,255,255,0.58)',
-    borderRadius: 24,
-    paddingHorizontal: 6,
-    paddingVertical: 6
+    borderRadius: 22,
+    paddingHorizontal: 5,
+    paddingVertical: 5
   },
   patternRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 8,
+    gap: 6,
     marginBottom: 0
   },
   patternRowCompact: {
-    gap: 6
+    gap: 5
   },
   slotShell: {
-    width: 74,
-    minHeight: 84
+    width: 68,
+    minHeight: 76
   },
   slotShellCompact: {
-    width: 64,
-    minHeight: 74
+    width: 58,
+    minHeight: 66
   },
   pieceCard: {
     flex: 1,
-    borderRadius: 22,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 10
+    paddingHorizontal: 6,
+    paddingVertical: 8
   },
   pieceCardCompact: {
-    borderRadius: 18,
-    paddingVertical: 8
+    borderRadius: 16,
+    paddingVertical: 6
   },
   pieceSelected: {
     borderWidth: 3,
     borderColor: '#FFFFFF'
   },
   pieceEmoji: {
-    fontSize: 28
-  },
-  pieceEmojiCompact: {
     fontSize: 24
   },
+  pieceEmojiCompact: {
+    fontSize: 20
+  },
   pieceLabel: {
-    marginTop: 5,
-    fontSize: 11,
+    marginTop: 4,
+    fontSize: 10,
     fontWeight: '800',
     color: '#FFFFFF',
     textAlign: 'center'
   },
   pieceLabelCompact: {
-    fontSize: 10
+    fontSize: 9
   },
   emptySlot: {
     flex: 1,
-    borderRadius: 22,
+    borderRadius: 20,
     borderWidth: 3,
     borderStyle: 'dashed',
     borderColor: '#FB923C',
@@ -323,41 +295,40 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   emptySlotCompact: {
-    borderRadius: 18
+    borderRadius: 16
   },
   emptyText: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: '900',
     color: '#F97316'
   },
   slotWrong: {
-    borderRadius: 22,
+    borderRadius: 20,
     borderWidth: 3,
     borderColor: palette.error
   },
   trayCard: {
-    marginTop: 'auto',
     backgroundColor: 'rgba(255,255,255,0.84)',
     borderRadius: 26,
-    padding: 12
+    padding: 10
   },
   trayTitle: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '800',
     color: palette.textSecondary,
     textAlign: 'center',
     textTransform: 'uppercase',
-    marginBottom: 10
+    marginBottom: 8
   },
   trayRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 10
+    gap: 8
   },
   trayItemShell: {
     flex: 1,
-    maxWidth: 104,
-    borderRadius: 22,
+    maxWidth: 96,
+    borderRadius: 20,
     overflow: 'hidden'
   },
   trayItemShellSelected: {
@@ -366,18 +337,18 @@ const styles = StyleSheet.create({
     borderColor: palette.accent
   },
   trayItemFill: {
-    minHeight: 86,
+    minHeight: 74,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 8
+    paddingHorizontal: 6,
+    paddingVertical: 6
   },
   trayEmoji: {
-    fontSize: 28
+    fontSize: 24
   },
   trayLabel: {
     marginTop: 4,
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: '800',
     color: '#FFFFFF',
     textAlign: 'center'

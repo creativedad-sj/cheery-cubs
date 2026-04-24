@@ -31,7 +31,7 @@ export function QuestionCard({
           {showSound && !soundOnly ? (
             <Pressable onPress={onSpeak} style={styles.button}>
               <LinearGradient colors={[palette.secondary, '#38BDF8']} style={styles.buttonFill}>
-                <Text style={styles.buttonText}>🔊</Text>
+                <Text style={styles.buttonText}>{'\u{1F50A}'}</Text>
               </LinearGradient>
             </Pressable>
           ) : null}
@@ -46,7 +46,7 @@ export function QuestionCard({
         {soundOnly ? (
           <Pressable onPress={onSpeak} style={styles.listenButton}>
             <LinearGradient colors={[palette.secondary, '#38BDF8']} style={styles.listenFill}>
-              <Text style={styles.listenEmoji}>🔊</Text>
+              <Text style={styles.listenEmoji}>{'\u{1F50A}'}</Text>
               <Text style={styles.listenText}>{soundOnlyLabel}</Text>
             </LinearGradient>
           </Pressable>

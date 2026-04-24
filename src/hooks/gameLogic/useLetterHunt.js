@@ -40,8 +40,8 @@ const letterFamilies = [
 
 const roundConfig = {
   1: { totalOptions: 6, targetCount: 2, mixCase: false },
-  2: { totalOptions: 8, targetCount: 3, mixCase: true },
-  3: { totalOptions: 9, targetCount: 4, mixCase: true }
+  2: { totalOptions: 9, targetCount: 3, mixCase: true },
+  3: { totalOptions: 12, targetCount: 4, mixCase: true }
 };
 
 function buildTargetOptions(family, targetCount, mixCase) {
@@ -81,6 +81,7 @@ export function useLetterHunt() {
   const [shakeId, setShakeId] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const timeoutRef = useRef(null);
+  const previousFamilyIdRef = useRef('');
   const difficulty = getDifficulty('letter-hunt');
   const speakRef = useRef(speak);
   const targetCountRef = useRef(0);
@@ -106,9 +107,15 @@ export function useLetterHunt() {
     clearRoundTimer();
 
     const config = roundConfig[difficulty] || roundConfig[1];
-    const family = letterFamilies[Math.floor(Math.random() * letterFamilies.length)];
+    const familyChoices =
+      letterFamilies.length > 1
+        ? letterFamilies.filter((entry) => entry.id !== previousFamilyIdRef.current)
+        : letterFamilies;
+    const family = familyChoices[Math.floor(Math.random() * familyChoices.length)];
     const targets = buildTargetOptions(family, config.targetCount, config.mixCase);
     const distractors = buildDistractors(family, config.totalOptions - config.targetCount);
+
+    previousFamilyIdRef.current = family.id;
 
     setTargetLetter(family.clue);
     setTargetVariants(config.mixCase ? family.variants : [family.variants[0]]);

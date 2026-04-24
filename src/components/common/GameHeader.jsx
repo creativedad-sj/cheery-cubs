@@ -6,7 +6,7 @@ export function GameHeader({ title, score, onBack, onSettings }) {
   return (
     <View style={styles.row}>
       <Pressable onPress={onBack} style={styles.chip}>
-        <Text style={styles.chipText}>← Home</Text>
+        <Text style={styles.chipText}>{'\u2190 Home'}</Text>
       </Pressable>
 
       <View style={styles.center}>
@@ -18,11 +18,11 @@ export function GameHeader({ title, score, onBack, onSettings }) {
       <View style={styles.actions}>
         {typeof score === 'number' ? (
           <View style={styles.score}>
-            <Text style={styles.scoreText}>⭐ {score}</Text>
+            <Text style={styles.scoreText}>{`\u2B50 ${score}`}</Text>
           </View>
         ) : null}
         <Pressable onPress={onSettings} style={styles.iconButton}>
-          <Text style={styles.iconText}>⚙️</Text>
+          <Text style={styles.iconText}>{'\u2699\uFE0F'}</Text>
         </Pressable>
       </View>
     </View>
