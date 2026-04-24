@@ -70,6 +70,22 @@ Before pushing a release-oriented change:
 5. update implementation docs if catalog or priorities changed
 6. deploy only after the above checks pass
 
+## Game Review Workflow
+For current product hardening, do not batch-change the whole catalog blindly.
+
+Use this workflow:
+
+1. review about `5` games at a time
+2. inspect requirement fit, design, UX, technical quality, and obvious security risk
+3. fix only the reviewed batch
+4. verify with `npm run lint` and export checks as needed
+5. device-test the same batch before moving on
+
+## Layout Decision Rule
+Do not standardize every game into one layout pattern.
+
+Use shared layout pieces when they help, but let the mechanic drive the final screen structure. If a broader layout change is proposed across multiple games, document the recommendation and confirm before applying it widely.
+
 ## Documentation Maintenance Rule
 When implementation changes affect product scope, status, or catalog structure:
 

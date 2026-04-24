@@ -29,6 +29,19 @@ What still feels short of launch quality:
 - the strongest games are stronger than the weakest by a large margin
 - the product is now more curated, but not yet equally polished across categories
 
+## Current Review Method
+The product is currently being hardened in reviewed batches of about five games at a time.
+
+For each batch, the review covers:
+
+- requirement fit for the intended age/stage
+- design clarity
+- child-facing UX and parent-facing trust
+- technical quality
+- production-readiness risks
+
+This is the right approach for the current state of the app because quality variance matters more than raw catalog growth.
+
 ## Strongest Product Areas
 
 ### Parent flow
@@ -113,6 +126,18 @@ Instead of relying on one repeated layout, build a small family of templates:
 
 This would preserve engineering efficiency while improving variety.
 
+Important clarification:
+
+- this does **not** mean every game should look the same
+- layout should follow the mechanic
+- when a game benefits from a different structure, that should be proposed explicitly instead of forced into a shared template
+
+Examples:
+
+- `Pattern Train` should feel like a construction puzzle
+- `Letter Garden` should feel like find-and-collect play
+- `Trail Adventure` should feel like tracing and movement
+
 ### Recommendation 3: Add age-band personality to the UI
 Keep the brand consistent, but shift the feel by stage:
 
@@ -168,3 +193,9 @@ It is:
 - keep the core catalog honest
 - expand the categories with the biggest true gaps
 - make the average game quality closer to the best games in the app
+
+The working standard for future recommendations should be:
+
+- do not smooth over disagreement
+- call out when a user preference may weaken the product
+- recommend the stronger option clearly, then let the final decision be intentional
